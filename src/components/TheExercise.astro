@@ -43,12 +43,30 @@ const { page, title, subtitle } = Astro.props;
             </div>
 
             <div class="aside__accordions" data-accordion="single">
-              <Accordion title="Логика" active={page == 2}>
+              <Accordion title="Танып белү үсеше" active={page == 2}>
                 <ul
                   style="--primary: rgb(254, 92, 148);
                 --primary-hover:rgba(254, 92, 148,0.2);
              --primary-light:rgba(254, 92, 148,0.1);"
                 >
+                  <li>
+                    <a href="/exercises/recognition/home">Туган җирем</a>
+                  </li>
+
+                  <li>
+                    <a href="/exercises/recognition/creml">Казан-Башкалам</a>
+                  </li>
+
+                  <li>
+                    <a href="/exercises/recognition/gerb-and-flag"
+                      >Татарстанның символикасы</a
+                    >
+                  </li>
+
+                  <li>
+                    <a href="/exercises/awareness/metro">Метро станцияләре </a>
+                  </li>
+
                   <li>
                     <a href="/exercises/logics/high-and-low">Югары һәм түбән</a>
                   </li>
@@ -58,8 +76,8 @@ const { page, title, subtitle } = Astro.props;
                   </li>
                   <li><a href="/exercises/logics/extra-row">Өстәмә рәт</a></li>
                   <li><a href="/exercises/logics/losses">Югалтулар</a></li>
-                  <li><a href="#">Салкын Һәм кайнар</a></li>
-                  <li><a href="#">Рәсемне җый</a></li>
+                  <!-- <li><a href="#">Салкын Һәм кайнар</a></li> -->
+                  <!-- <li><a href="#">Рәсемне җый</a></li> -->
                 </ul>
               </Accordion>
 

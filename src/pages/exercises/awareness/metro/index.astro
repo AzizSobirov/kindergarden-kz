@@ -1,0 +1,103 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={3}
+  title="Метро станцияләре"
+  subtitle="Син кайчан да булса Казан метросында булдыңмы? Рәсемнәрдә нинди метро станциясе сурәтләнгән? Ничек атала ул? Бу метро станциясе турында сөйлә."
+>
+  <div class="answers">
+    <div class="splide">
+      <div class="splide__track">
+        <ul class="splide__list">
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113596.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113598.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113600.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113602.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113604.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113605.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113608.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113610.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113611.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113616.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113618.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1113620.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114012.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114016.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114018.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114024.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114027.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114033.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114038.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160529-1114049.jpg" />
+          </li>
+          <li class="splide__slide">
+            <Image class="splide-img" src="metro/160530-1114078.jpg" />
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <span>
+    Станция "Тукай Метро" дип атала һәм Казан үзәгендә урнашкан. Ул атаклы татар
+    шагыйре Габдулла Тукай хөрмәтенә аталган. Бу станциянең бай бизәлеше аның
+    иҗатына багышланган. Юл диварларында аның танылган шигырьләренә
+    иллюстрацияләр белән 22 мозаик панно урнаштырылган; һәр панно татарча һәм
+    русча язылган. Бер мозаикада Тукай үзе сурәтләнгән. Станция вестибюльләренең
+    берсендә шагыйрьнең бюсты урнаштырылган.
+  </span>
+
+  <link
+    href="
+https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
+"
+    rel="stylesheet"
+  />
+  <script
+    src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"
+    is:inline></script>
+  <script is:inline>
+    new Splide(".splide").mount();
+  </script>
+</Exercice>

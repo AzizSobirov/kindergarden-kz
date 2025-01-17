@@ -75,8 +75,7 @@ if (header) {
 
     name.innerHTML = "Хисматуллина Алия <br/> Илдар кызы";
     role.innerHTML = "Ата-ана";
-    avatar.src = "/assets/img/ata-ana.png";
-    avatar.style.objectPosition = "60%";
+    avatar.src = "/assets/img/ata-ana.jpg";
   }
 
   menuItems.forEach((item, index) => {

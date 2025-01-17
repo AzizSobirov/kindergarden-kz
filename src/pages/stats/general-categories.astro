@@ -9,8 +9,12 @@ const sidebarList = [
     title: "Гомуми хисап: категорияләр",
     path: "/stats/general-categories",
   },
-  { id: 2, title: "Тәрбияче буенча: күнегүләр", path: "/stats/categories" },
-  { id: 3, title: "Тәрбияче буенча: категорияләр", path: "/stats/categories" },
+  { id: 2, title: "Тәрбияче буенча: күнегүләр", path: "/stats/tutors" },
+  {
+    id: 3,
+    title: "Тәрбияче буенча: категорияләр",
+    path: "/stats/tutors-categories",
+  },
 ];
 
 const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
@@ -87,7 +91,7 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
                     }
                   })
                 }
-               </div>
+              </div>
               <div class="time__filters">
                 <div class="balance__time">
                   <label for="date-start">Датадан:</label>

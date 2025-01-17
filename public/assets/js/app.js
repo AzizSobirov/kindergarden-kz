@@ -111,40 +111,40 @@ const colorArray = [
 const chartExercises = document.getElementById("chart-1");
 if (chartExercises) {
   let exerciseData = [
-    { id: 0, name: "Югалтулар", result: 3 },
+    { id: 0, name: "Туган җирем", result: 3 },
     {
       id: 1,
-      name: "Өстәмә рәт",
+      name: "Казан-Башкалам ",
       result: 1,
     },
     {
       id: 2,
-      name: "Нәрсә авыррак?",
+      name: "Татарстанның символикасы ",
       result: 2,
     },
     {
       id: 3,
-      name: "Парны тап",
+      name: "Метро станцияләре ",
       result: 1,
     },
     {
       id: 4,
-      name: "Күләгәне тап",
+      name: "Югары һәм түбән",
       result: 2,
     },
     {
       id: 5,
-      name: "Күңелле исәп",
+      name: "Өстәмә рәт",
       result: 1,
     },
     {
       id: 6,
-      name: "Бала һәм әни",
+      name: "Югалтулар",
       result: 4,
     },
     {
       id: 7,
-      name: "3 кадәр саныйбыз",
+      name: "Каты һәм йомшак",
       result: 1,
     },
   ];
@@ -159,6 +159,7 @@ if (chartExercises) {
   const config = {
     type: "doughnut",
     data: {
+      labels: exerciseData.map((item) => item.name),
       datasets: [
         {
           label: "Exercises",
@@ -167,6 +168,20 @@ if (chartExercises) {
           hoverOffset: 4,
         },
       ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return `${tooltipItem.raw}`;
+            },
+          },
+        },
+      },
     },
   };
 
@@ -183,6 +198,7 @@ if (chartCategories1) {
   const config = {
     type: "doughnut",
     data: {
+      labels: exerciseData.map((item) => item.name),
       datasets: [
         {
           label: "Exercises",
@@ -191,6 +207,20 @@ if (chartCategories1) {
           hoverOffset: 4,
         },
       ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return `${tooltipItem.raw}`;
+            },
+          },
+        },
+      },
     },
   };
 
@@ -207,6 +237,7 @@ if (chartCategories2) {
   const config = {
     type: "doughnut",
     data: {
+      labels: exerciseData.map((item) => item.name),
       datasets: [
         {
           label: "Exercises",
@@ -215,6 +246,20 @@ if (chartCategories2) {
           hoverOffset: 4,
         },
       ],
+    },
+    options: {
+      plugins: {
+        legend: {
+          display: false,
+        },
+        tooltip: {
+          callbacks: {
+            label: function (tooltipItem) {
+              return `${tooltipItem.raw}`;
+            },
+          },
+        },
+      },
     },
   };
 
@@ -351,4 +396,18 @@ if (chartCategories4) {
   };
 
   new Chart(chartCategories4, config);
+}
+
+const rangeFilters = document.querySelector(".range__filters");
+if (rangeFilters) {
+  const items = rangeFilters.querySelectorAll(".range__filters-item");
+
+  items.forEach((item, index, arr) => {
+    item.addEventListener("click", () => {
+      arr.forEach((item) => {
+        item.classList.remove("active");
+      });
+      item.classList.add("active");
+    });
+  });
 }

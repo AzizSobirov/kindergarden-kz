@@ -1023,8 +1023,11 @@ main {
         &-item {
           padding: 5px 20px;
           width: calc(100% / 4 - 10px);
-          border-radius: 20px;
+          font-weight: 700;
+          border-radius: 12px;
           border: 1px solid var(--primary);
+          transition: var(--transition-ease);
+
           &.active {
             color: #fff;
             background-color: var(--primary);
@@ -1092,8 +1095,8 @@ main {
     }
 
     &__doughnut {
-      width: 50% !important;
-      height: 50% !important;
+      width: 45% !important;
+      height: 45% !important;
     }
 
     &__list {
@@ -1107,6 +1110,7 @@ main {
     &__item {
       display: flex;
       margin-bottom: 10px;
+
       &-color {
         width: 20px;
         height: 20px;
@@ -1122,6 +1126,11 @@ main {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
+
+    canvas {
+      width: 320px !important;
+      height: 320px !important;
+    }
   }
 
   .categories__chart {

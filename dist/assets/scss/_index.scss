@@ -227,6 +227,10 @@ main {
     align-items: flex-start;
     gap: 40px;
 
+    .text-h2 {
+      font-style: normal;
+    }
+
     &-top {
       margin-top: 20px;
       width: 100%;
@@ -271,9 +275,14 @@ main {
         border-bottom: 2px solid var(--primary);
       }
 
-      tr:not(:last-child) {
-        border-bottom: 2px solid var(--primary);
+      tbody tr:last-child {
+        color: var(--primary) !important;
+        background: var(--primary-light);
       }
+
+      // tr:not(:last-child) {
+      //   border-bottom: 2px solid var(--primary);
+      // }
 
       td:first-child,
       th:first-child {

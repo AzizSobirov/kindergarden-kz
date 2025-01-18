@@ -1,4 +1,4 @@
-const isAdmin = sessionStorage.getItem("is-admin") || "false";
+const userType = sessionStorage.getItem("user-type") || "";
 
 const startSection = document.querySelector(".start");
 if (startSection) {
@@ -16,19 +16,24 @@ if (startSection) {
       option.classList.add("active");
 
       if (option.textContent == "Мәгариф идарәсе") {
-        sessionStorage.setItem("is-admin", true);
+        sessionStorage.setItem("user-type", "admin");
 
         window.location = "/stats/general";
+      } else if (option.textContent == "Ата-ана") {
+        sessionStorage.setItem("user-type", "parent");
+
+        window.location = "/achievements";
       } else {
-        sessionStorage.setItem("is-admin", false);
+        sessionStorage.setItem("user-type", "");
 
         const menuItems = header.querySelectorAll(
           ".header__menu .header__menu-item"
         );
+
         menuItems.forEach((item, index) => {
-          if (index != menuItems.length - 1) {
-            item.style.display = "flex";
-          } else {
+          item.style.display = "flex";
+
+          if ((index = menuItems.length - 1)) {
             let a = item.querySelector("a");
             a.href = "/stats";
           }
@@ -57,14 +62,24 @@ if (header) {
   const author = header.querySelector(".header__author");
   const idara = header.querySelector(".header__idara");
 
-  if (isAdmin == "true" && idara) {
+  if (userType == "admin" && idara) {
     idara.style.display = "flex";
     name.style.display = "none";
     author.style.display = "none";
   }
 
+  if (userType == "parent" && author) {
+    const name = author.querySelector(".header__author-name");
+    const role = author.querySelector(".header__author-role");
+    const avatar = author.querySelector(".header__author-avatar img");
+
+    name.innerHTML = "Хисматуллина Алия <br/> Илдар кызы";
+    role.innerHTML = "Ата-ана";
+    avatar.src = "/assets/img/ata-ana.jpg";
+  }
+
   menuItems.forEach((item, index) => {
-    if (isAdmin == "true") {
+    if (userType == "admin") {
       if (index != menuItems.length - 1) {
         item.style.display = "none";
       } else {
@@ -73,11 +88,31 @@ if (header) {
       }
     }
 
+    if (userType == "parent") {
+      if (index != menuItems.length - 2) {
+        item.style.display = "none";
+      }
+    }
+
     const a = item.querySelector("a");
 
     const isActive = a.href == window.location.href;
     isActive && item.classList.add("active");
   });
+}
+
+const profile = document.querySelector(".intro__profile");
+if (profile) {
+  const name = profile.querySelector(".intro__profile-top .text-h2");
+  const desc = profile.querySelector(".intro__profile-top .text-h3");
+  const avatar = profile.querySelector(".intro__profile-top img");
+
+  if (userType == "parent") {
+    name.innerHTML = "Хисматуллин Илнур Айдар улы";
+    desc.innerHTML = "Урта төркем укучысы, 5 яшь";
+    avatar.src = "/assets/img/little-boy.jpg";
+    avatar.style.objectPosition = "center";
+  }
 }
 
 // ** Accordions ** //

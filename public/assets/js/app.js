@@ -111,7 +111,7 @@ if (profile) {
     name.innerHTML = "Хисматуллин Илнур Айдар улы";
     desc.innerHTML = "Урта төркем укучысы, 5 яшь";
     avatar.src = "/assets/img/little-boy.jpg";
-    avatar.style.objectPosition = "center";
+    avatar.style.objectPosition = "center 45%";
   }
 }
 

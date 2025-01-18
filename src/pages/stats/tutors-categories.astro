@@ -39,7 +39,10 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
           <div class="balance__image">
             <Image src="page-2/chart.webp" />
           </div>
-          <div class="balance__title">Тәрбияченен күнегүләр буенча хисабы</div>
+          <div class="balance__title">
+            Тәрбияченен күнегүләр буенча хисабы: <br /> Шәмсетдинова Айгөл Таһир
+            кызы
+          </div>
         </div>
 
         <div class="balance__layout">
@@ -110,8 +113,21 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
               </div>
             </div>
 
-            <div class="general__chart">
-              <canvas class="bar" id="chart-5" style="height: 600px;"></canvas>
+            <div class="categories__charts">
+              <div class="categories__chart">
+                <div class="categories__chart-title">Сөйләм үсеше</div>
+                <div class="categories__chart-subtitle">
+                  Күнегүләр башкарылды: 4
+                </div>
+                <canvas class="doughnut" id="chart-2"></canvas>
+              </div>
+              <div class="categories__chart">
+                <div class="categories__chart-title">Сәнгати-эстетик үсеш</div>
+                <div class="categories__chart-subtitle">
+                  Күнегүләр башкарылды: 5
+                </div>
+                <canvas class="doughnut" id="chart-3"></canvas>
+              </div>
             </div>
           </div>
         </div>

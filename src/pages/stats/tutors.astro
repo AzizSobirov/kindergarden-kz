@@ -18,6 +18,56 @@ const sidebarList = [
 ];
 
 const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
+
+export const colorArray = [
+  "#88DBFB",
+  "#9FFFA2",
+  "#A2ACFF",
+  "#ffc08e",
+  "#ffef79",
+  "#51b59f",
+  "#69c86d",
+  "#ffafc2",
+];
+
+let exerciseData = [
+  { id: 0, name: "Туган җирем", result: 3 },
+  {
+    id: 1,
+    name: "Казан-Башкалам ",
+    result: 1,
+  },
+  {
+    id: 2,
+    name: "Татарстанның символикасы ",
+    result: 2,
+  },
+  {
+    id: 3,
+    name: "Метро станцияләре ",
+    result: 1,
+  },
+  {
+    id: 4,
+    name: "Югары һәм түбән",
+    result: 2,
+  },
+  {
+    id: 5,
+    name: "Өстәмә рәт",
+    result: 1,
+  },
+  {
+    id: 6,
+    name: "Югалтулар",
+    result: 4,
+  },
+  {
+    id: 7,
+    name: "Каты һәм йомшак",
+    result: 1,
+  },
+];
 ---
 
 <App title="Хисаплар" template="2">
@@ -39,7 +89,10 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
           <div class="balance__image">
             <Image src="page-2/chart.webp" />
           </div>
-          <div class="balance__title">Тәрбияченен күнегүләр буенча хисабы</div>
+          <div class="balance__title">
+            Тәрбияченен күнегүләр буенча хисабы: <br /> Шәмсетдинова Айгөл Таһир
+            кызы
+          </div>
         </div>
 
         <div class="balance__layout">
@@ -110,8 +163,32 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
               </div>
             </div>
 
-            <div class="general__chart">
-              <canvas class="bar" id="chart-4"></canvas>
+            <div class="balance__charts">
+              <canvas class="balance__doughnut" id="chart-1"></canvas>
+              <div class="balance__list">
+                <H4
+                  >Гомуми саны: {
+                    exerciseData.reduce((sum, item) => sum + item.result, 0)
+                  } күнегү</H4
+                >
+                <ul>
+                  {
+                    exerciseData.map((item, index) => (
+                      <li class="balance__item">
+                        <div
+                          class="balance__item-color"
+                          style={{ backgroundColor: colorArray[index] }}
+                        />
+                        <div class="balance__item-name">{item.name}</div>
+                        <span> - </span>
+                        <div class="balance__item-result">
+                          {item.result} күнегү
+                        </div>
+                      </li>
+                    ))
+                  }
+                </ul>
+              </div>
             </div>
           </div>
         </div>

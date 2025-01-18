@@ -33,7 +33,7 @@ if (startSection) {
         menuItems.forEach((item, index) => {
           item.style.display = "flex";
 
-          if ((index = menuItems.length - 1)) {
+          if (index == menuItems.length - 1) {
             let a = item.querySelector("a");
             a.href = "/stats";
           }
@@ -58,33 +58,45 @@ if (startSection) {
 const header = document.querySelector(".header");
 if (header) {
   const menuItems = header.querySelectorAll(".header__menu .header__menu-item");
+  const headerRight = header.querySelector(".header__content-right");
   const name = header.querySelector(".header__name");
   const author = header.querySelector(".header__author");
   const idara = header.querySelector(".header__idara");
+  const pupil = header.querySelector(".header__pupil");
 
   if (userType == "admin" && idara) {
     idara.style.display = "flex";
     name.style.display = "none";
     author.style.display = "none";
+
+    headerRight.style.transform = "translateY(-15px)";
+    headerRight.style.gap = "30px";
   }
 
   if (userType == "parent" && author) {
+    const baqchaName = header.querySelector(".header__name");
     const name = author.querySelector(".header__author-name");
     const role = author.querySelector(".header__author-role");
     const avatar = author.querySelector(".header__author-avatar img");
 
     name.innerHTML = "Хисматуллина Алия <br/> Илдар кызы";
-    role.innerHTML = "Ата-ана";
+    role.innerHTML = "Әни";
     avatar.src = "/assets/img/ata-ana.jpg";
+
+    baqchaName.style.display = "none";
+    pupil.style.display = "flex";
+
+    headerRight.style.transform = "translateY(-15px)";
+    headerRight.style.gap = "30px";
   }
 
   menuItems.forEach((item, index) => {
     if (userType == "admin") {
-      if (index != menuItems.length - 1) {
-        item.style.display = "none";
-      } else {
+      if (index == menuItems.length - 1) {
         let a = item.querySelector("a");
         a.href = "/stats/general";
+      } else {
+        item.style.display = "none";
       }
     }
 
@@ -108,8 +120,10 @@ if (profile) {
   const avatar = profile.querySelector(".intro__profile-top img");
 
   if (userType == "parent") {
-    name.innerHTML = "Хисматуллин Илнур Айдар улы";
-    desc.innerHTML = "Урта төркем укучысы, 5 яшь";
+    // name.innerHTML = "Хисматуллин Илнур Айдар улы";
+    // desc.innerHTML = "Урта төркем укучысы, 5 яшь";
+    name.style.display = "none";
+    desc.style.display = "none";
     avatar.src = "/assets/img/little-boy.jpg";
     avatar.style.objectPosition = "center 45%";
   }

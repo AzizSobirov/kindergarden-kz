@@ -57,6 +57,24 @@
     background: var(--secondary);
   }
 
+  &__pupil {
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 6px;
+
+    &-name {
+      color: var(--primary);
+      font-size: 24px;
+      font-family: "Target", sans-serif;
+    }
+
+    &-desc {
+      color: rgba($color: #000000, $alpha: 0.7);
+      font-size: 15px;
+    }
+  }
+
   &__menu {
     margin-right: 40px;
     display: flex;
@@ -93,13 +111,14 @@
     }
 
     &-name {
+      font-size: 18px;
       font-weight: 500;
     }
 
     &-role {
       color: var(--primary);
-      font-size: 12px;
-      font-weight: 500;
+      font-size: 16px;
+      font-weight: 700;
     }
 
     &-avatar {

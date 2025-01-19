@@ -13,20 +13,90 @@ import Exercice from "../../../components/TheExercise.astro";
   <div class="purity-of-speech">
     <ul>
       <li>
-        <div class="box box--filled"></div>
+        <div class="box draggable" draggable="true" data-match="1"></div>
         <span>Т</span>
-        <div class="box"></div>
+        <div class="box dropzone" data-match="1"></div>
       </li>
       <li>
-        <div class="box box--filled"></div>
+        <div class="box draggable" draggable="true" data-match="2"></div>
         <span>у</span>
-        <div class="box"></div>
+        <div class="box dropzone" data-match="2"></div>
       </li>
       <li>
-        <div class="box box--filled"></div>
+        <div class="box draggable" draggable="true" data-match="3"></div>
         <span>п</span>
-        <div class="box"></div>
+        <div class="box dropzone" data-match="3"></div>
       </li>
     </ul>
   </div>
 </Exercice>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const draggables = document.querySelectorAll(".draggable");
+    const dropzones = document.querySelectorAll(".dropzone");
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", (e) => {
+        const matchId = draggable.getAttribute("data-match");
+        e.dataTransfer.setData("match", matchId);
+      });
+    });
+
+    dropzones.forEach((dropzone) => {
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const matchId = e.dataTransfer.getData("match");
+
+        const droppedElement = document.querySelector(
+          `.draggable[data-match="${matchId}"]`
+        );
+
+        // Логика перетаскивания
+        if (matchId === "1" && dropzone.getAttribute("data-match") === "2") {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
+        } else if (
+          (matchId === "2" || matchId === "3") &&
+          dropzone.getAttribute("data-match") !== "2"
+        ) {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
+        } else {
+          dropzone.classList.add("incorrect");
+          setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+        }
+      });
+    });
+  });
+</script>
+
+<style scoped>
+  .purity-of-speech .draggable[data-match="1"] {
+    background: red;
+  }
+
+  .purity-of-speech .draggable[data-match="2"] {
+    background: #00f;
+  }
+
+  .purity-of-speech .draggable[data-match="3"] {
+    background: #00f;
+  }
+
+  .purity-of-speech .correct {
+    background-color: #d4f8d4;
+    border-color: #4caf50;
+  }
+
+  .purity-of-speech .incorrect {
+    background-color: #ffd6d6;
+    border-color: #f44336;
+  }
+</style>

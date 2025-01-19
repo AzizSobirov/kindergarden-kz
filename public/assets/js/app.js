@@ -132,8 +132,30 @@ if (header) {
     }
 
     const a = item.querySelector("a");
+    const linkUrl = new URL(a.href, window.location.origin);
 
-    const isActive = a.href == window.location.href;
+    let isActive = false;
+    if (linkUrl.pathname === "/" && window.location.pathname === "/") {
+      isActive = true;
+    } else if (
+      linkUrl.pathname == "/exercises" &&
+      window.location.pathname.startsWith("/exercises")
+    ) {
+      isActive = true;
+    } else if (
+      linkUrl.pathname == "/achievements" &&
+      window.location.pathname.startsWith("/achievements")
+    ) {
+      isActive = true;
+    } else if (
+      linkUrl.pathname.includes("/stats") &&
+      window.location.pathname.startsWith("/stats")
+    ) {
+      isActive = true;
+    } else {
+      isActive = false;
+    }
+
     isActive && item.classList.add("active");
   });
 }
@@ -148,10 +170,11 @@ if (profile) {
   );
 
   if (userType == "parent") {
-    // name.innerHTML = "Хисматуллин Илнур Айдар улы";
-    // desc.innerHTML = "Урта төркем укучысы, 5 яшь";
-    name.style.display = "none";
-    desc.style.display = "none";
+    name.innerHTML = "Хисматуллин Илнур <br/> Айдар улы";
+    desc.innerHTML =
+      "Саба 6нчы «Балачак» балалар бакчасы, <br/> Урта төркем укучысы, 5 яшь";
+    // name.style.display = "none";
+    // desc.style.display = "none";
     avatar.src = "/assets/img/little-boy.jpg";
     avatar.style.objectPosition = "center 45%";
 

@@ -9,7 +9,7 @@
   z-index: 10;
 
   &__content {
-    padding: 20px 20px 25px;
+    padding: 25px 20px 25px;
     width: 100%;
     background: url("../img/header-bg.png") center/cover;
     display: flex;
@@ -118,7 +118,8 @@
     &-role {
       color: var(--primary);
       font-size: 18px;
-      font-weight: 700;
+      font-weight: 500;
+      font-family: var(--font-secondary);
     }
 
     &-avatar {
@@ -146,10 +147,11 @@
     justify-content: flex-start;
 
     &-text {
-      padding: 10px 30px 10px 10px;
+      padding: 10px 30px 10px 20px;
       text-align: left;
-      font-size: 17px;
-      font-weight: 700;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: var(--font-secondary);
       text-transform: uppercase;
       background: var(--secondary);
     }

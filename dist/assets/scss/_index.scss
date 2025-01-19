@@ -605,7 +605,8 @@ main {
       width: 100%;
       color: #00000060;
       font-size: 24px;
-      font-weight: 700;
+      font-weight: 400;
+      font-family: var(--font-secondary);
       text-align: center;
       line-height: 1.35;
     }
@@ -638,27 +639,23 @@ main {
       gap: 20px;
 
       &:nth-child(1) {
-        --text-color: rgb(255, 87, 88);
+        --text-color: rgb(191, 181, 211);
       }
 
       &:nth-child(2) {
-        --text-color: rgb(148, 136, 61);
+        --text-color: rgb(255, 87, 88);
       }
 
       &:nth-child(3) {
-        --text-color: rgb(0, 74, 173);
+        --text-color: rgb(148, 136, 61);
       }
 
       &:nth-child(4) {
-        --text-color: rgb(88, 47, 142);
-      }
-
-      &:nth-child(5) {
         --text-color: rgb(21, 93, 28);
       }
 
-      &:nth-child(6) {
-        --text-color: rgb(255, 145, 77);
+      &:nth-child(5) {
+        --text-color: #b5b085;
       }
 
       &-title {
@@ -724,6 +721,10 @@ main {
       &:first-child img {
         width: 90%;
       }
+    }
+
+    li:hover {
+      background-color: rgb(233, 233, 233);
     }
 
     img {
@@ -1341,4 +1342,213 @@ main {
 .flag-img {
   margin-top: 10px;
   width: 380px;
+}
+
+.description {
+  text-align: justify;
+}
+
+.highAndLow:hover {
+  border: 2px solid rgb(88, 183, 112) !important;
+  background-color: transparent !important;
+}
+
+.regular-text {
+  width: 100%;
+  text-align: left;
+  color: rgba(0, 0, 0, 0.3764705882);
+}
+
+.exercise_secondary_title {
+  width: 100%;
+  text-align: left;
+  padding: 8px 0;
+  color: rgba(0, 0, 0, 0.3764705882);
+  font-size: 20px;
+}
+
+.body_image {
+  position: relative;
+  height: 600px;
+  width: 600px;
+}
+
+.cat_image img {
+  padding: 20px;
+}
+
+.spot {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  opacity: 0.7;
+  background-color: var(--primary);
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  transition: all 0.5s;
+  animation: pulse 1.5s infinite;
+  cursor: pointer;
+
+  .tooltip-text {
+    font-size: 12px;
+    font-weight: 600;
+    visibility: hidden;
+    background-color: white;
+    color: rgba(0, 0, 0, 0.3764705882);
+    text-align: center;
+    border-radius: 5px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: -50%;
+    opacity: 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: white transparent transparent transparent;
+    }
+  }
+
+  &:hover {
+    .tooltip-text {
+      visibility: visible;
+      opacity: 1;
+    }
+    opacity: 1;
+    animation: none;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+.match-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  gap: 2rem;
+  margin: 2rem auto;
+  max-width: 800px;
+}
+
+.match-container + b.title {
+  color: #00000060;
+  font-size: 20px;
+}
+
+.images-container,
+.dropzones-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.dropzone {
+  width: 200px;
+  min-height: 50px;
+  height: -webkit-min-content;
+  height: -moz-min-content;
+  height: min-content;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #666;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+}
+
+.dropzone2 {
+  width: 120px;
+  height: 120px;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  font-size: 1rem;
+  color: #666;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+}
+
+.dropzone2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.drop1 {
+  height: 53px;
+}
+
+.drop2,
+.drop3 {
+  height: 118px;
+}
+
+.draggable {
+  width: 200px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.draggable2 {
+  width: 120px;
+  height: 120px;
+  cursor: -webkit-grab;
+  cursor: grab;
+}
+
+.draggable img,
+.draggable2 img {
+  width: 100%;
+  -o-object-fit: cover;
+  object-fit: cover;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+.draggable2 img {
+  height: 100%;
 }

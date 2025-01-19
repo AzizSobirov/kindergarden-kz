@@ -1,0 +1,86 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  menu={4}
+  title="Спорт биналары"
+  subtitle="Рәсемнәргә кара. Син аларның кайсыларын күргәнең бар? Син аларның кайсыларында йөргәнең бар? Нинди бинада нәрсә белән шөгыльләнүләрен сөйлә. Рәсемнәрне чагыштыр."
+  next="/exercises/physic/ball"
+>
+  <div class="match-container">
+    <div class="images-container" style="gap:1rem">
+      <div class="draggable2" draggable="true" data-match="2">
+        <Image src="sport/BasketBall.png" />
+      </div>
+      <div class="draggable2" draggable="true" data-match="4">
+        <Image src="sport/Hockey.jpg" />
+      </div>
+      <div class="draggable2" draggable="true" data-match="3">
+        <Image src="sport/Pool.jpg" />
+      </div>
+      <div class="draggable2" draggable="true" data-match="1">
+        <Image src="sport/FootBall.png" />
+      </div>
+    </div>
+
+    <div class="dropzones-container" style="gap:1rem">
+      <div class="dropzone2" data-match="1">
+        <Image src="sport/AkBarsArena.png" />
+      </div>
+      <div class="dropzone2" data-match="2">
+        <Image src="sport/BasketHall.jpg" />
+      </div>
+      <div class="dropzone2" data-match="3">
+        <Image src="sport/DVVS.jpg" />
+      </div>
+      <div class="dropzone2" data-match="4">
+        <Image src="sport/TatNeftArena.jpg" />
+      </div>
+    </div>
+  </div>
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const draggables = document.querySelectorAll(".draggable2");
+      const dropzones = document.querySelectorAll(".dropzone2");
+
+      draggables.forEach((draggable) => {
+        draggable.addEventListener("dragstart", (e) => {
+          // Убедимся, что атрибут data-match установлен
+          const matchId = draggable.getAttribute("data-match");
+          if (matchId) {
+            e.dataTransfer.setData("match", matchId);
+          }
+        });
+      });
+
+      dropzones.forEach((dropzone) => {
+        dropzone.addEventListener("dragover", (e) => {
+          e.preventDefault(); // Разрешаем сброс
+        });
+
+        dropzone.addEventListener("drop", (e) => {
+          e.preventDefault();
+          const matchId = e.dataTransfer.getData("match");
+
+          if (matchId) {
+            if (dropzone.getAttribute("data-match") === matchId) {
+              dropzone.classList.add("correct");
+              const draggedElement = document.querySelector(
+                `.draggable2[data-match="${matchId}"]`
+              );
+              dropzone.appendChild(draggedElement); // Помещаем элемент в зону
+            } else {
+              dropzone.classList.add("incorrect");
+              setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+            }
+          } else {
+            console.error("matchId is null or undefined");
+          }
+        });
+      });
+    });
+  </script>
+</Exercice>

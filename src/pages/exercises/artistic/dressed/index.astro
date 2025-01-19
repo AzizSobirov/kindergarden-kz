@@ -1,0 +1,83 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  menu={3}
+  title="Татар милли киемнәр"
+  subtitle="Әлфиягә киенергә булыш. Татар милли костюмының үзенчәлекләре турында сөйлә."
+  next="/exercises/artistic/music"
+>
+  <div class="match-container">
+    <div class="dropzones-container">
+      <div class="dropzone drop1" data-match="1"></div>
+      <div class="dropzone drop2" data-match="2"></div>
+      <div class="dropzone drop3" data-match="3"></div>
+    </div>
+
+    <div class="images-container">
+      <div class="draggable" draggable="true" data-match="1">
+        <Image src="dressed/top.jpg" />
+      </div>
+      <div class="draggable" draggable="true" data-match="3">
+        <Image src="dressed/bottom.jpg" />
+      </div>
+      <div class="draggable" draggable="true" data-match="2">
+        <Image src="dressed/middle.jpg" />
+      </div>
+    </div>
+  </div>
+  <b class="title">Кызлар өчен татар костюмы.</b>
+  <span>
+    Кызлар өчен татар костюмы милли колорит тапшыра. Концерт чыгышлары, иҗади
+    конкурслар һәм тематик дәресләр өчен туры килә. Костюм баш киеменнән,
+    күлмәктән, камзулдан тора. Костюм татар орнаментлары белән бизәлгән, аны
+    татар милли бизәнү әйберләре белән тулыландырырга мөмкин. Баш киеме чигүле
+    бәрхеттән эшләнгән, пайеткалар белән бизәлгән. Баш киеменең түбәннән
+    пайеткалар белән чигүдән купон бара. Баш киемен шифоннан вуаль тулыландыра.
+  </span>
+  <script is:inline>
+    document.addEventListener("DOMContentLoaded", () => {
+      const draggables = document.querySelectorAll(".draggable");
+      const dropzones = document.querySelectorAll(".dropzone");
+
+      draggables.forEach((draggable) => {
+        draggable.addEventListener("dragstart", (e) => {
+          // Убедимся, что атрибут data-match установлен
+          const matchId = draggable.getAttribute("data-match");
+          if (matchId) {
+            e.dataTransfer.setData("match", matchId);
+          }
+        });
+      });
+
+      dropzones.forEach((dropzone) => {
+        dropzone.addEventListener("dragover", (e) => {
+          e.preventDefault(); // Разрешаем сброс
+        });
+
+        dropzone.addEventListener("drop", (e) => {
+          e.preventDefault();
+          const matchId = e.dataTransfer.getData("match");
+
+          if (matchId) {
+            if (dropzone.getAttribute("data-match") === matchId) {
+              dropzone.classList.add("correct");
+              const draggedElement = document.querySelector(
+                `.draggable[data-match="${matchId}"]`
+              );
+              dropzone.appendChild(draggedElement); // Помещаем элемент в зону
+            } else {
+              dropzone.classList.add("incorrect");
+              setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+            }
+          } else {
+            console.error("matchId is null or undefined");
+          }
+        });
+      });
+    });
+  </script>
+</Exercice>

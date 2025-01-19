@@ -8,7 +8,7 @@
     
     <title>Сөйләм сафлыгы</title>
     
-  <link rel="stylesheet" href="/assets/css/app.D2u0vbp-.css"></head>
+  <link rel="stylesheet" href="/assets/css/app.DMeu46iW.css"></head>
   <body>
     
     <!-- The Header -->
@@ -284,10 +284,10 @@
                 --primary-hover:rgba(210, 237, 255,0.8);
              --primary-light:rgba(210, 237, 255,0.4);">
                   <li>
-                    <a href="/exercises/artistic/colors">Хайваннарны саныйбыз</a>
+                    <a href="/exercises/numbers/sum">Хайваннарны саныйбыз</a>
                   </li>
                   <!-- <li><a href="#">Күңелле исәп</a></li> -->
-                  <li><a href="#">Предметларны саныйбыз</a></li>
+                  <li><a href="/exercises/numbers/howmuch">Предметларны саныйбыз</a></li>
                   <!-- <li><a href="#">1 - 3 саннарын өйрәнәбез</a></li> -->
                   <!-- <li><a href="#">5 кадәр саныйбыз </a></li> -->
                 </ul>
@@ -307,9 +307,9 @@
                 <ul style="--primary:rgb(255, 145, 77);
                 --primary-hover:rgba(255, 145, 77,0.2);
              --primary-light:rgba(255, 145, 77,0.1);">
-                  <li><a href="#">Иҗекләрне кабатла - “C” авазы</a></li>
-                  <li><a href="#">Бармагың белән үткәр - “З” авазы </a></li>
-                  <li><a href="#"> Фонематик ишетү - “Р” авазы </a></li>
+                  <li><a href="/exercises/pronounce/ssound">Иҗекләрне кабатла - “C” авазы</a></li>
+                  <li><a href="/exercises/pronounce/zsound">Бармагың белән үткәр - “З” авазы </a></li>
+                  <li><a href="/exercises/pronounce/rsound"> Фонематик ишетү - “Р” авазы </a></li>
                 </ul>
               
     </div>
@@ -326,22 +326,22 @@
               <div class="card-title">Сүзнең авазларын дөрес урнаштыр</div>
 
               
-  <div class="purity-of-speech">
-    <ul>
-      <li>
-        <div class="box box--filled"></div>
-        <span>Т</span>
-        <div class="box"></div>
+  <div class="purity-of-speech" data-astro-cid-azilmsf4>
+    <ul data-astro-cid-azilmsf4>
+      <li data-astro-cid-azilmsf4>
+        <div class="box draggable" draggable="true" data-match="1" data-astro-cid-azilmsf4></div>
+        <span data-astro-cid-azilmsf4>Т</span>
+        <div class="box dropzone" data-match="1" data-astro-cid-azilmsf4></div>
       </li>
-      <li>
-        <div class="box box--filled"></div>
-        <span>у</span>
-        <div class="box"></div>
+      <li data-astro-cid-azilmsf4>
+        <div class="box draggable" draggable="true" data-match="2" data-astro-cid-azilmsf4></div>
+        <span data-astro-cid-azilmsf4>у</span>
+        <div class="box dropzone" data-match="2" data-astro-cid-azilmsf4></div>
       </li>
-      <li>
-        <div class="box box--filled"></div>
-        <span>п</span>
-        <div class="box"></div>
+      <li data-astro-cid-azilmsf4>
+        <div class="box draggable" draggable="true" data-match="3" data-astro-cid-azilmsf4></div>
+        <span data-astro-cid-azilmsf4>п</span>
+        <div class="box dropzone" data-match="3" data-astro-cid-azilmsf4></div>
       </li>
     </ul>
   </div>
@@ -427,6 +427,52 @@
 </div>
     
     <!-- The Scripts -->
-    <script src="/assets/js/chartjs.min.js"></script><script src="/assets/js/app.js?v=dc1cc"></script>
+    <script src="/assets/js/chartjs.min.js"></script><script src="/assets/js/app.js?v=e84d7"></script>
   </body>
 </html>
+
+<script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const draggables = document.querySelectorAll(".draggable");
+    const dropzones = document.querySelectorAll(".dropzone");
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", (e) => {
+        const matchId = draggable.getAttribute("data-match");
+        e.dataTransfer.setData("match", matchId);
+      });
+    });
+
+    dropzones.forEach((dropzone) => {
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const matchId = e.dataTransfer.getData("match");
+
+        const droppedElement = document.querySelector(
+          `.draggable[data-match="${matchId}"]`
+        );
+
+        // Логика перетаскивания
+        if (matchId === "1" && dropzone.getAttribute("data-match") === "2") {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
+        } else if (
+          (matchId === "2" || matchId === "3") &&
+          dropzone.getAttribute("data-match") !== "2"
+        ) {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
+        } else {
+          dropzone.classList.add("incorrect");
+          setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+        }
+      });
+    });
+  });
+</script>

@@ -613,8 +613,8 @@ main {
       padding: 0 20px;
       width: 100%;
       color: #00000060;
-      font-size: 24px;
-      font-weight: 400;
+      font-size: 22px;
+      font-weight: 600;
       font-family: var(--font-secondary);
       text-align: center;
       line-height: 1.35;
@@ -710,6 +710,81 @@ main {
 }
 
 .page-2 {
+  .sum {
+    .answers {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 0 40px;
+
+      li {
+        padding: 10px;
+        height: 100px;
+        width: 100px;
+        border: 2px solid rgba($color: #000000, $alpha: 0.1);
+        border-radius: 30px;
+        cursor: pointer;
+        overflow: hidden;
+        font-size: 50px;
+        color: rgb(88, 183, 112);
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
+
+    .span {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: rgba($color: #000000, $alpha: 0.6);
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
+  .howmuch {
+    .container_images {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .answers {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+      justify-content: space-between;
+      gap: 20px;
+
+      li {
+        padding: 10px;
+        height: 200px;
+        width: 160px;
+        border: 2px solid rgba($color: #000000, $alpha: 0.1);
+        border-radius: 30px;
+        cursor: pointer;
+        overflow: hidden;
+      }
+
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: contain;
+        transform: scale(130%);
+      }
+    }
+
+    .span {
+      margin-top: 40px;
+      margin-bottom: 20px;
+      color: rgba($color: #000000, $alpha: 0.6);
+      font-size: 14px;
+      text-align: center;
+    }
+  }
+
   .list {
     margin-top: 10px;
     width: 100%;

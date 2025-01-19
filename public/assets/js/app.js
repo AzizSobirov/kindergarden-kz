@@ -23,8 +23,12 @@ if (startSection) {
         sessionStorage.setItem("user-type", "parent");
 
         window.location = "/achievements";
+      } else if (option.textContent == "Тәрбияче") {
+        sessionStorage.setItem("user-type", "teacher");
+        window.location = "/exercises";
       } else {
         sessionStorage.setItem("user-type", "");
+        resetHeader();
 
         const menuItems = header.querySelectorAll(
           ".header__menu .header__menu-item"
@@ -56,6 +60,27 @@ if (startSection) {
 
 // Header
 const header = document.querySelector(".header");
+
+function resetHeader() {
+  const baqchaName = header.querySelector(".header__name");
+  const author = header.querySelector(".header__author");
+  const name = author.querySelector(".header__author-name");
+  const role = author.querySelector(".header__author-role");
+  const avatar = author.querySelector(".header__author-avatar img");
+  const pupil = header.querySelector(".header__pupil");
+  const headerRight = header.querySelector(".header__content-right");
+
+  name.innerHTML = "Шәмсетдинова <br/> Айгөл Таһир кызы";
+  role.innerHTML = "Балалар бакчасы тәрбиячесе";
+  avatar.src = "/assets/img/avatar.png";
+
+  baqchaName.style.display = "flex";
+  pupil.style.display = "none";
+
+  headerRight.style.transform = "translateY(0)";
+  headerRight.style.gap = "20px";
+}
+
 if (header) {
   const menuItems = header.querySelectorAll(".header__menu .header__menu-item");
   const headerRight = header.querySelector(".header__content-right");
@@ -69,7 +94,7 @@ if (header) {
     name.style.display = "none";
     author.style.display = "none";
 
-    headerRight.style.transform = "translateY(-15px)";
+    headerRight.style.transform = "translateY(-5px)";
     headerRight.style.gap = "30px";
   }
 
@@ -86,7 +111,7 @@ if (header) {
     baqchaName.style.display = "none";
     pupil.style.display = "flex";
 
-    headerRight.style.transform = "translateY(-15px)";
+    headerRight.style.transform = "translateY(-5px)";
     headerRight.style.gap = "30px";
   }
 
@@ -118,6 +143,9 @@ if (profile) {
   const name = profile.querySelector(".intro__profile-top .text-h2");
   const desc = profile.querySelector(".intro__profile-top .text-h3");
   const avatar = profile.querySelector(".intro__profile-top img");
+  const ratingItems = profile.querySelectorAll(
+    ".intro__profile-rating .flex-row"
+  );
 
   if (userType == "parent") {
     // name.innerHTML = "Хисматуллин Илнур Айдар улы";
@@ -126,6 +154,16 @@ if (profile) {
     desc.style.display = "none";
     avatar.src = "/assets/img/little-boy.jpg";
     avatar.style.objectPosition = "center 45%";
+
+    ratingItems[0].style.display = "flex";
+    ratingItems[1].style.display = "flex";
+    ratingItems[2].style.display = "none";
+    ratingItems[3].style.display = "none";
+  } else {
+    ratingItems[0].style.display = "none";
+    ratingItems[1].style.display = "none";
+    ratingItems[2].style.display = "flex";
+    ratingItems[3].style.display = "flex";
   }
 }
 
@@ -475,3 +513,69 @@ if (rangeFilters) {
     });
   });
 }
+
+// modal
+const modal = {
+  el: document.querySelector(".modal"),
+  blocks: document.querySelectorAll(".modal__content"),
+  open: function (name, animation = true) {
+    const target = this.el.querySelector(`[data-root=${name}]`);
+
+    this.el.classList.add("active");
+    this.el.style.display = "flex";
+    target.style.display = "flex";
+
+    if (animation) {
+      setTimeout(() => {
+        target.style.opacity = 1;
+        target.style.transform = "scale(1)";
+      }, 50);
+    } else {
+      target.style.opacity = 1;
+      target.style.transform = "scale(1)";
+    }
+  },
+  close: function (name, parent = true) {
+    if (!name) {
+      this.blocks.forEach((block) => {
+        block.style.opacity = 0;
+        block.style.transform = "scale(0.85)";
+
+        setTimeout(() => {
+          block.style.display = "none";
+        }, 350);
+      });
+    } else {
+      const target = this.el.querySelector(`[data-root=${name}]`);
+      target.style.opacity = 0;
+      target.style.transform = "scale(0.85)";
+
+      if (!parent) {
+        target.style.display = "none";
+      } else {
+        setTimeout(() => {
+          target.style.display = "none";
+        }, 350);
+      }
+    }
+
+    if (parent) {
+      setTimeout(() => {
+        this.el.classList.remove("active");
+        this.el.style.display = "none";
+      }, 350);
+    }
+  },
+};
+
+const modalTriggers = document.querySelectorAll("[data-modal]");
+modalTriggers.forEach((trigger) => {
+  trigger.addEventListener("click", () => {
+    const name = trigger.dataset.modal;
+    if (name !== "close") {
+      modal.open(name);
+    } else {
+      modal.close(null, true);
+    }
+  });
+});

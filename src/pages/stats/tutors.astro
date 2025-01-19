@@ -90,8 +90,8 @@ let exerciseData = [
             <Image src="page-2/chart.webp" />
           </div>
           <div class="balance__title">
-            Тәрбияченен күнегүләр буенча хисабы: <br /> <span>Шәмсетдинова Айгөл Таһир
-              кызы</span>
+            Тәрбияченең күнегүләр буенча хисабы: <br />
+            <span>Шәмсетдинова Айгөл Таһир кызы</span>
           </div>
         </div>
 
@@ -174,7 +174,10 @@ let exerciseData = [
                 <ul>
                   {
                     exerciseData.map((item, index) => (
-                      <li class="balance__item">
+                      <li
+                        class="balance__item"
+                        style={{ color: colorArray[index], fontWeight: "bold" }}
+                      >
                         <div
                           class="balance__item-color"
                           style={{ backgroundColor: colorArray[index] }}

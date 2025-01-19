@@ -79,7 +79,7 @@ let exerciseData = [
           <div class="balance__image">
             <Image src="page-2/chart.webp" />
           </div>
-          <div class="balance__title">Тәрбияченен күнегүләр буенча хисабы</div>
+          <div class="balance__title">Тәрбияченең күнегүләр буенча хисабы</div>
         </div>
         <div class="balance__layout">
           <div class="balance__sidebar">
@@ -147,7 +147,7 @@ let exerciseData = [
                 </div>
               </div>
             </div>
-           
+
             <div class="balance__charts">
               <canvas class="balance__doughnut" id="chart-1"></canvas>
               <div class="balance__list">
@@ -159,7 +159,10 @@ let exerciseData = [
                 <ul>
                   {
                     exerciseData.map((item, index) => (
-                      <li class="balance__item">
+                      <li
+                        class="balance__item"
+                        style={{ color: colorArray[index], fontWeight: "bold" }}
+                      >
                         <div
                           class="balance__item-color"
                           style={{ backgroundColor: colorArray[index] }}

@@ -3,13 +3,13 @@
   // position: fixed;
   // top: 0;
   // left: 0;
-  height: 190px;
+  height: 175px;
   width: 100%;
   transition: var(--transition-ease);
   z-index: 10;
 
   &__content {
-    padding: 40px 20px 25px;
+    padding: 20px 20px 25px;
     width: 100%;
     background: url("../img/header-bg.png") center/cover;
     display: flex;
@@ -111,13 +111,13 @@
     }
 
     &-name {
-      font-size: 18px;
+      font-size: 20px;
       font-weight: 500;
     }
 
     &-role {
       color: var(--primary);
-      font-size: 16px;
+      font-size: 18px;
       font-weight: 700;
     }
 

@@ -118,7 +118,7 @@ main {
 }
 
 .intro {
-  min-height: calc(100vh - 190px);
+  min-height: calc(100vh - 175px);
   background: url("../img/bg-2.png") bottom/cover no-repeat;
   background-size: 115% auto;
   background-position: 50% 105%;
@@ -362,7 +362,7 @@ main {
         gap: 12px;
 
         &:first-child {
-          width: 380px;
+          width: 480px;
         }
 
         &:last-child {
@@ -568,6 +568,7 @@ main {
       margin-top: 20px;
       margin-right: 60px;
       min-width: 220px;
+      cursor: pointer;
     }
   }
 
@@ -1341,7 +1342,3 @@ main {
   margin-top: 10px;
   width: 380px;
 }
-
-// @include show(".endoscopy");
-
-// @include show(".endoscopy");

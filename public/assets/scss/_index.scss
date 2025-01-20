@@ -592,8 +592,9 @@ main {
 
     &-title {
       color: var(--primary);
-      font-size: 28px;
-      font-weight: 700;
+      font-size: 26px;
+      font-family: var(--font-secondary);
+      font-weight: 600;
       text-align: center;
     }
   }

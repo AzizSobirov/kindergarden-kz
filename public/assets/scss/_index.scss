@@ -1067,6 +1067,11 @@ main {
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: var(--transition-ease);
+
+      &:hover {
+        border-color: rgb(88, 183, 112);
+      }
     }
   }
 

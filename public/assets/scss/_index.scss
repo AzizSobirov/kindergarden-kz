@@ -892,6 +892,11 @@ main {
         border: 2px solid rgba($color: #000000, $alpha: 0.1);
         border-radius: 30px;
         cursor: pointer;
+        transition: var(--transition-ease);
+
+        &:hover {
+          border-color: rgb(88, 183, 112);
+        }
       }
 
       img {
@@ -978,6 +983,12 @@ main {
       display: flex;
       align-items: center;
       justify-content: center;
+      transition: var(--transition-ease);
+      cursor: pointer;
+
+      &:hover {
+        border-color: rgb(88, 183, 112);
+      }
 
       img {
         width: 80%;
@@ -1442,6 +1453,7 @@ main {
 .regular-text {
   width: 100%;
   text-align: left;
+  line-height: 1.35;
   color: rgba(0, 0, 0, 0.3764705882);
 }
 

@@ -40,7 +40,8 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
             <Image src="page-2/chart.webp" />
           </div>
           <div class="balance__title">
-            Мәгариф идарәсенең балалар бакчалары буенча гомуми хисабы: күнегүләр саны
+            Мәгариф идарәсенең балалар бакчалары буенча гомуми хисабы: күнегүләр
+            саны
           </div>
         </div>
 
@@ -94,7 +95,8 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
                   })
                 }
               </div>
-              <div class="time__filters">
+
+              <div class="time__filters" style="gap:20px">
                 <div class="balance__time">
                   <label for="date-start">Датадан:</label>
                   <input id="date-start" type="date" value="2024-06-27" />
@@ -102,12 +104,40 @@ const timeRanges = ["Бүген", "Атна", "1 Ай", "3 Ай"];
                     <Image src="/icons/date-icon.png" />
                   </div>
                 </div>
+
                 <div class="balance__time">
                   <label for="date-end">Дата буенча:</label>
                   <input id="date-end" type="date" value="2024-07-04" />
                   <div class="custom-date-icon">
                     <Image src="/icons/date-icon.png" />
                   </div>
+                </div>
+
+                <div class="balance__select">
+                  <select id="select-1">
+                    <option value="" disabled selected>Рейтинг</option>
+                    <option value="by_exercises">Биремнәр саны</option>
+                    <option value="by_time">Башкару вакыты</option>
+                  </select>
+                </div>
+
+                <div class="balance__select">
+                  <select id="select-2">
+                    <option value="overall" selected>Гомуми</option>
+                    <option value="social_communication"
+                      >Иҗтимагый-коммуникатив үсеш</option
+                    >
+                    <option value="cognitive_development"
+                      >Танып белү үсеше</option
+                    >
+                    <option value="speech_development">Сөйләм үсеше</option>
+                    <option value="artistic_aesthetic"
+                      >Сәнгати-эстетик үсеш</option
+                    >
+                    <option value="physical_development">Физик үсеш</option>
+                    <option value="learning_to_count">Санарга өйрәнәбез</option>
+                    <option value="speech_therapy">Логопедик биремнәр</option>
+                  </select>
                 </div>
               </div>
             </div>

@@ -395,6 +395,24 @@ if (chartCategories2) {
 
 const chartCategories3 = document.getElementById("chart-4");
 if (chartCategories3) {
+  const select1 = document.getElementById("select-1");
+  const select2 = document.getElementById("select-2");
+
+  // Data for different filters
+  const datasets = {
+    rating: {
+      by_exercises: [40, 25, 60, 45, 77, 54, 25, 89],
+      by_time: [35, 30, 55, 50, 65, 60, 20, 80],
+    },
+    categories: {
+      overall: [50, 40, 70, 60, 80, 65, 30, 90],
+      social_communication: [45, 35, 65, 55, 75, 60, 25, 85],
+      cognitive_development: [30, 20, 50, 40, 60, 55, 15, 75],
+      speech_development: [25, 15, 45, 35, 55, 50, 10, 70],
+      artistic_aesthetic: [20, 10, 40, 30, 50, 45, 5, 65],
+    },
+  };
+
   const config = {
     type: "bar",
     data: {
@@ -411,7 +429,7 @@ if (chartCategories3) {
       datasets: [
         {
           label: "Value",
-          data: [40, 25, 60, 45, 77, 54, 25, 89],
+          data: datasets.rating.by_exercises,
           backgroundColor: "rgb(172, 217, 181)",
           borderColor: "rgb(172, 217, 181)",
           borderWidth: 1,
@@ -443,7 +461,29 @@ if (chartCategories3) {
     },
   };
 
-  new Chart(chartCategories3, config);
+  const chart = new Chart(chartCategories3, config);
+
+  // Event listeners for dropdown changes
+  select1.addEventListener("change", () => {
+    const selected1 = select1.value.trim();
+    const selected2 = select2.value.trim();
+
+    if (datasets.rating[selected1]) {
+      chart.data.datasets[0].data = datasets.rating[selected1];
+    }
+
+    chart.update();
+  });
+
+  select2.addEventListener("change", () => {
+    const selected2 = select2.value.trim();
+
+    if (datasets.categories[selected2]) {
+      chart.data.datasets[0].data = datasets.categories[selected2];
+    }
+
+    chart.update();
+  });
 }
 
 const chartCategories4 = document.getElementById("chart-5");

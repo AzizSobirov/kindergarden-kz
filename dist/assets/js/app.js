@@ -120,14 +120,16 @@ if (header) {
       if (index == menuItems.length - 1) {
         let a = item.querySelector("a");
         a.href = "/stats/general";
-      } else {
+      } else if (index != 0) {
         item.style.display = "none";
       }
     }
 
     if (userType == "parent") {
-      if (index != menuItems.length - 2) {
-        item.style.display = "none";
+      if (index != 0) {
+        if (index != menuItems.length - 2) {
+          item.style.display = "none";
+        }
       }
     }
 
@@ -602,3 +604,74 @@ modalTriggers.forEach((trigger) => {
     }
   });
 });
+
+// exercise
+const exercise = document.querySelector(".exercice");
+if (exercise) {
+  const actions = exercise.querySelector(".result__actions");
+  const btnMute = actions.querySelector("[data-action=mute]");
+  const btnMuteIcon = btnMute.querySelector("img");
+  const btnPlay = actions.querySelector("[data-action=play]");
+  const btnPlayIcon = btnPlay.querySelector("img");
+
+  const audio = new Audio();
+  // audio.src = actions.dataset.audio;
+  audio.src = "https://ct.kids-smart.ru/storage/audio/exercises/64.webm?v=2";
+
+  let isPlaying = false;
+  let isEnded = false;
+  let isMuted = false;
+
+  btnMute.addEventListener("click", () => {
+    if (!isMuted) {
+      btnMute.style.setProperty("--primary", "#a0a0a0");
+      btnMuteIcon.src = "/assets/img/icons/mute.svg";
+      isMuted = true;
+      audio.muted = true;
+
+      actions.style.width = "62px";
+    } else {
+      btnMute.style.setProperty("--primary", "rgb(88, 183, 112)");
+      btnMuteIcon.src = "/assets/img/icons/sound.svg";
+      isMuted = false;
+      audio.muted = false;
+
+      if (isEnded || !isPlaying) {
+        btnPlay.style.setProperty("--primary", "rgb(127, 90, 202)");
+        btnPlayIcon.src = "/assets/img/icons/stop.svg";
+        audio.currentTime = 0;
+        audio.play();
+        isEnded = false;
+        isPlaying = true;
+      }
+
+      actions.style.width = "118px";
+    }
+  });
+
+  btnPlay.addEventListener("click", () => {
+    if (isEnded) {
+      audio.currentTime = 0;
+      isEnded = false;
+    }
+
+    if (!isPlaying) {
+      btnPlay.style.setProperty("--primary", "rgb(127, 90, 202)");
+      btnPlayIcon.src = "/assets/img/icons/stop.svg";
+      audio.play();
+      isPlaying = true;
+    } else {
+      btnPlay.style.setProperty("--primary", "rgb(88, 183, 112)");
+      btnPlayIcon.src = "/assets/img/icons/play.svg";
+      audio.pause();
+      isPlaying = false;
+    }
+  });
+
+  audio.addEventListener("ended", () => {
+    btnPlay.style.setProperty("--primary", "rgb(88, 183, 112)");
+    btnPlayIcon.src = "/assets/img/icons/play.svg";
+    isPlaying = false;
+    isEnded = true;
+  });
+}

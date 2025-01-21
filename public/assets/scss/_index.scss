@@ -521,17 +521,39 @@ main {
     &__actions {
       margin-top: 5px;
       padding: 6px 8px;
+      width: 118px;
       background: var(--primary-light);
       border-radius: 10px;
+      transition: var(--transition-ease);
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 12px;
+      overflow: hidden;
 
       img {
         width: 45px;
         height: 45px;
         object-fit: cover;
+      }
+
+      .icon {
+        padding: 8px;
+        background: var(--primary);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-ease);
+        --icon-size: 45px;
+
+        &:hover {
+          opacity: 0.8;
+        }
+
+        img {
+          object-fit: contain;
+        }
       }
     }
 

@@ -29,6 +29,11 @@ import Exercice from "../../../../components/TheExercise.astro";
       </div>
     </div>
   </div>
+
+  <div class="btn-play">
+    <Image src="icons/play.svg" />
+  </div>
+
   <b class="title">Кызлар өчен татар костюмы.</b>
   <span style="padding-inline:5px; line-height: 1.35; text-align: justify;">
     Кызлар өчен татар костюмы милли колорит тапшыра. Концерт чыгышлары, иҗади
@@ -81,3 +86,22 @@ import Exercice from "../../../../components/TheExercise.astro";
     });
   </script>
 </Exercice>
+
+<style lang="scss">
+  .btn-play {
+    margin: 0 0 20px;
+    padding: 10px;
+    width: 80px;
+    background: var(--primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-ease);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+</style>

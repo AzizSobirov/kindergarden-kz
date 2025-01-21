@@ -9,16 +9,21 @@ import Exercice from "../../../../components/TheExercise.astro";
   subtitle=""
   next="/exercises/awareness/metro"
 >
-  <b class="gerb-flag-block"> Татарстан Республикасы Дәүләт флагы </b>
+  <b class="gerb-flag-block"> Татарстан Республикасы Дәүләт флагы (әләм) </b>
   <div class="answers">
     <Image class="flag-img" src="flag.jpg" />
   </div>
-  <br />
+
+  <div class="btn-play">
+    <Image src="icons/play.svg" />
+  </div>
+
   <span class="gerb-flag-block-title">
-    Татарстан Республикасы Дәүләт флагы яшел, ак һәм кызыл төстәге горизонталь
-    полосалы турыпочмаклы тукымадан гыйбарәт. Ак полоса тар һәм яшел һәм кызыл
-    төстәге полосалар арасында урнашкан. Яшел полоса өстә.
+    Татарстан Республикасы Дәүләт флагы (әләм) яшел, ак һәм кызыл төстәге
+    горизонталь полосалы турыпочмаклы тукымадан гыйбарәт. Ак полоса тар һәм яшел
+    һәм кызыл төстәге полосалар арасында урнашкан. Яшел полоса өстә.
   </span>
+
   <br />
   <b class="gerb-flag-block"> Татарстан Республикасы Дәүләт гербы </b>
   <div class="answers">
@@ -33,4 +38,151 @@ import Exercice from "../../../../components/TheExercise.astro";
     Дәүләт гербының төсле сурәтендә кояш - барс, аның канатлары һәм калкандагы
     розеткасы - ак, яшел, калкан, орнамент - алтын төстәге.
   </span>
+
+  <br />
+
+  <strong>Татарстан гербы уртасында нинди тамча сурәтләнгән?</strong>
+
+  <div class="list-drag">
+    <ul>
+      <li>
+        <div class="box draggable" draggable="true" data-match="1">
+          <Image src="gerb.jpg" />
+        </div>
+      </li>
+      <li>
+        <div class="box draggable" draggable="true" data-match="2">
+          <Image src="gerb2.webp" />
+        </div>
+        <div class="box dropzone" data-match="2"></div>
+      </li>
+      <li>
+        <div class="box draggable" draggable="true" data-match="3">
+          <Image src="gerb3.png" />
+        </div>
+      </li>
+    </ul>
+  </div>
 </Exercice>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const listDrag = document.querySelectorAll(".list-drag ul li");
+    const draggables = document.querySelectorAll(".draggable");
+    const dropzones = document.querySelectorAll(".dropzone");
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", (e) => {
+        const matchId = draggable.getAttribute("data-match");
+        e.dataTransfer.setData("match", matchId);
+      });
+    });
+
+    dropzones.forEach((dropzone, index, arr) => {
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const matchId = e.dataTransfer.getData("match");
+
+        const droppedElement = document.querySelector(
+          `.draggable[data-match="${matchId}"]`
+        );
+
+        // Логика перетаскивания
+        if (matchId === "1" && dropzone.getAttribute("data-match") === "2") {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          // droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
+
+          listDrag[0].style.display = "none";
+          listDrag[2].style.display = "none";
+
+          let draggable = listDrag[1].querySelector(".draggable");
+          draggable.style.display = "none";
+        } else if (
+          (matchId === "2" || matchId === "3") &&
+          dropzone.getAttribute("data-match") !== "2"
+        ) {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
+        } else {
+          dropzone.classList.add("incorrect");
+          setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+        }
+      });
+    });
+  });
+</script>
+
+<style lang="scss" scoped>
+  .btn-play {
+    margin: 20px 0;
+    padding: 10px;
+    width: 80px;
+    background: var(--primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-ease);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
+  .list-drag {
+    margin-top: 20px;
+    width: 100%;
+
+    ul {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-evenly;
+      gap: 20px;
+    }
+
+    li {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .box {
+      padding: 10px;
+      width: 150px;
+      height: 150px;
+      border-radius: 30px;
+      border: 2px solid rgba(0, 0, 0, 0.1);
+
+      img {
+        width: 100% !important;
+        height: 100% !important;
+        border: none !important;
+        object-fit: contain !important;
+      }
+    }
+  }
+
+  .correct {
+    background-color: #d4f8d4;
+    border-color: #4caf50;
+  }
+
+  .incorrect {
+    background-color: #ffd6d6;
+    border-color: #f44336;
+  }
+
+  .dropzone .draggable {
+    padding: 0 !important;
+    border: none !important;
+  }
+</style>

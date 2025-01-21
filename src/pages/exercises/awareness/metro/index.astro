@@ -6,8 +6,8 @@ import Exercice from "../../../../components/TheExercise.astro";
 <Exercice
   page={2}
   title="Метро станцияләре"
-  subtitle="Син кайчан да булса Казан метросында булдыңмы? Рәсемнәрдә нинди метро станциясе сурәтләнгән? Ничек атала ул? Бу метро станциясе турында сөйлә."
-  next="/exercises/logics/high-and-low"
+  subtitle="Син кайчан да булса Казан метросында булганың бармы? Бу рәсемдә нинди метро станциясе сурәтләнгән? Аның турында сөйлә."
+  next="/exercises/logics/extra-row"
 >
   <div class="answers">
     <div class="splide">
@@ -64,7 +64,7 @@ import Exercice from "../../../../components/TheExercise.astro";
           <li class="splide__slide">
             <Image class="splide-img" src="metro/160529-1114024.jpg" />
           </li>
-         
+
           <li class="splide__slide">
             <Image class="splide-img" src="metro/160529-1114033.jpg" />
           </li>
@@ -81,13 +81,13 @@ import Exercice from "../../../../components/TheExercise.astro";
       </div>
     </div>
   </div>
+
+  <div class="btn-play">
+    <Image src="icons/play.svg" />
+  </div>
+
   <span style="line-height: 1.35; text-align: justify;">
-    Станция "Тукай Метро" дип атала һәм Казан үзәгендә урнашкан. Ул атаклы татар
-    шагыйре Габдулла Тукай хөрмәтенә аталган. Бу станциянең бай бизәлеше аның
-    иҗатына багышланган. Юл диварларында аның танылган шигырьләренә
-    иллюстрацияләр белән 22 мозаик панно урнаштырылган; һәр панно татарча һәм
-    русча язылган. Бер мозаикада Тукай үзе сурәтләнгән. Станция вестибюльләренең
-    берсендә шагыйрьнең бюсты урнаштырылган.
+    Казан үзәгендә урнашкан бу станция ("Тукай Метро" станциясе дип атала). Ул атаклы татар шагыйре Габдулла Тукайга багышланган. Бу станциянең бай бизәлеше аның иҗатын чагыгдыра. Юл диварларында аның танылган шигырьләренә иллюстрацияләр белән 22 мозаик панно урнаштырылган; һәр панно татарча һәм русча язылган. Бер мозаикада Тукай үзе сурәтләнгән. Станция вестибюльләренең берсендә шагыйрьнең бюсты урнаштырылган.
   </span>
 
   <link
@@ -103,3 +103,22 @@ https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/css/splide.min.css
     new Splide(".splide").mount();
   </script>
 </Exercice>
+
+<style lang="scss">
+  .btn-play {
+    margin: 20px 0;
+    padding: 10px;
+    width: 80px;
+    background: var(--primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-ease);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+</style>

@@ -1,0 +1,54 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  menu={3}
+  title="Сәнгатьтә һөнәрләр"
+  subtitle="Рәсемнәргә кара. Рәссамны тап."
+  next="/exercises/physic/body"
+>
+  <div class="sum">
+    <ul class="answers">
+      <div class="row">
+        <li class="highAndLow">
+          <div>
+            <Image src="page-2/artist1.jpg" />
+          </div>
+        </li>
+        <li class="highAndLow">
+          <div>
+            <Image src="page-2/artist2.png" />
+          </div>
+        </li>
+      </div>
+      <div class="row">
+        <li class="highAndLow">
+          <div>
+            <Image src="page-2/artist3.png" />
+          </div>
+        </li>
+        <li class="highAndLow">
+          <div>
+            <Image src="page-2/artist4.png" />
+          </div>
+        </li>
+      </div>
+    </ul>
+  </div>
+</Exercice>
+
+<style scoped>
+  .answers li {
+    width: 200px;
+    height: 250px;
+  }
+
+  .row {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+</style>

@@ -109,7 +109,7 @@ if (header) {
     avatar.src = "/assets/img/ata-ana.jpg";
 
     baqchaName.style.display = "none";
-    pupil.style.display = "flex";
+    // pupil.style.display = "flex";
 
     headerRight.style.transform = "translateY(-5px)";
     headerRight.style.gap = "30px";
@@ -256,7 +256,7 @@ if (chartExercises) {
     },
     {
       id: 4,
-      name: "Югары һәм түбән",
+      name: "Спорт биналары",
       result: 2,
     },
     {
@@ -271,7 +271,7 @@ if (chartExercises) {
     },
     {
       id: 7,
-      name: "Каты һәм йомшак",
+      name: "Минем гаиләм",
       result: 1,
     },
   ];
@@ -410,6 +410,8 @@ if (chartCategories3) {
       cognitive_development: [30, 20, 50, 40, 60, 55, 15, 75],
       speech_development: [25, 15, 45, 35, 55, 50, 10, 70],
       artistic_aesthetic: [20, 10, 40, 30, 50, 45, 5, 65],
+      physical_development: [50, 33, 70, 60, 2, 65, 30, 12],
+      speech_therapy: [2, 15, 45, 21, 55, 22, 10, 32],
     },
   };
 
@@ -463,13 +465,30 @@ if (chartCategories3) {
 
   const chart = new Chart(chartCategories3, config);
 
+  // Helper function to sort datasets and labels together
+  function sortData(labels, data) {
+    const combined = labels.map((label, index) => ({
+      label,
+      value: data[index],
+    }));
+    combined.sort((a, b) => b.value - a.value); // Sort by value in descending order
+    return {
+      labels: combined.map((item) => item.label),
+      data: combined.map((item) => item.value),
+    };
+  }
+
   // Event listeners for dropdown changes
   select1.addEventListener("change", () => {
     const selected1 = select1.value.trim();
-    const selected2 = select2.value.trim();
 
     if (datasets.rating[selected1]) {
-      chart.data.datasets[0].data = datasets.rating[selected1];
+      const sortedData = sortData(
+        config.data.labels,
+        datasets.rating[selected1]
+      );
+      chart.data.labels = sortedData.labels;
+      chart.data.datasets[0].data = sortedData.data;
     }
 
     chart.update();
@@ -479,7 +498,12 @@ if (chartCategories3) {
     const selected2 = select2.value.trim();
 
     if (datasets.categories[selected2]) {
-      chart.data.datasets[0].data = datasets.categories[selected2];
+      const sortedData = sortData(
+        config.data.labels,
+        datasets.categories[selected2]
+      );
+      chart.data.labels = sortedData.labels;
+      chart.data.datasets[0].data = sortedData.data;
     }
 
     chart.update();
@@ -713,5 +737,32 @@ if (exercise) {
     btnPlayIcon.src = "/assets/img/icons/play.svg";
     isPlaying = false;
     isEnded = true;
+  });
+}
+
+const getAllPlayBtns = document.querySelectorAll(".btn-play");
+if (getAllPlayBtns && getAllPlayBtns.length > 0) {
+  getAllPlayBtns.forEach((item) => {
+    const icon = item.querySelector("img");
+
+    const audio = new Audio();
+    audio.src = item.dataset.src;
+
+    item.addEventListener("click", () => {
+      if (item.dataset.state == "paused" || !item.dataset.state) {
+        icon.src = "/assets/img/icons/stop.svg";
+        item.dataset.state = "playing";
+        audio.play();
+      } else {
+        icon.src = "/assets/img/icons/play.svg";
+        item.dataset.state = "paused";
+        audio.pause();
+      }
+    });
+
+    audio.addEventListener("ended", () => {
+      icon.src = "/assets/img/icons/play.svg";
+      item.dataset.state = "paused";
+    });
   });
 }

@@ -20,7 +20,7 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
       <div class="breadcrumb">
         <ol class="breadcrumb-list">
           <li>
-            <a href="/"><span>Баш</span></a>
+            <a href="/"><span>Баш бит</span></a>
           </li>
           <li>
             <a href="/exercises"><span>Күнегүләр</span></a>
@@ -60,11 +60,11 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     <a href="/exercises/communication/homework">Өй эшләре </a>
                   </li>
 
-                  <li>
+                  <!-- <li>
                     <a href="/exercises/communication/polite-words"
                       >Әдәпле сүзләр</a
                     >
-                  </li>
+                  </li> -->
                 </ul>
               </Accordion>
 
@@ -77,6 +77,12 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                   <!-- <li>
                     <a href="/exercises/recognition/home">Туган җирем</a>
                   </li> -->
+
+                  <li>
+                    <a href="/exercises/recognition/rules">
+                      Юл хәрәкәте кагыйдәләре
+                    </a>
+                  </li>
 
                   <li>
                     <a href="/exercises/recognition/creml">Казан-Башкалам</a>
@@ -92,45 +98,29 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     <a href="/exercises/awareness/metro">Метро станцияләре </a>
                   </li>
 
-                  <li>
+                  <!-- <li>
                     <a href="/exercises/logics/high-and-low">Югары һәм түбән</a>
-                  </li>
+                  </li> -->
 
                   <li><a href="/exercises/logics/extra-row">Өстәмә рәт</a></li>
                   <li><a href="/exercises/logics/losses">Югалтулар</a></li>
-                  <li>
+                  <!-- <li>
                     <a href="/exercises/logics/hard-and-soft">Каты һәм йомшак</a
                     >
-                  </li>
+                  </li> -->
                   <!-- <li><a href="#">Салкын Һәм кайнар</a></li> -->
                   <!-- <li><a href="#">Рәсемне җый</a></li> -->
+
+                  <li>
+                    <a href="/exercises/numbers/sum">Хайваннарны саныйбыз</a>
+                  </li>
+                  <li>
+                    <a href="/exercises/numbers/howmuch"
+                      >Предметларны саныйбыз</a
+                    >
+                  </li>
                 </ul>
               </Accordion>
-
-              <!-- <Accordion title="Уку Һәм грамота" active={page == 3}>
-                <ul
-                  style="--primary:rgb(148, 136, 61);
-                     --primary-hover:rgba(253, 233, 206,0.8);
-                  --primary-light:rgba(253, 233, 206,0.4);"
-                >
-                  <li>
-                    <a href="/exercises/grammar/purity-of-speech"
-                      >Сөйләм сафлыгы</a
-                    >
-                  </li>
-                  <li><a href="/exercises/grammar/alphabet">Әлифба</a></li>
-                  <li>
-                    <a href="/exercises/grammar/choose-a-letter"
-                      >Хәрефне сайла</a
-                    >
-                  </li>
-                  <li>
-                    <a href="/exercises/grammar/work-with-letters"
-                      >Хәрефләр белән эш</a
-                    >
-                  </li>
-                </ul>
-              </Accordion> -->
 
               <Accordion title="Сөйләм үсеше" active={menu == 2}>
                 <ul
@@ -147,13 +137,14 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     >
                   </li>
                   <li>
-                    <a href="/exercises/grammar/choose-a-letter">Авазны сайла</a
+                    <a href="/exercises/grammar/choose-a-letter"
+                      >Хәрефне сайла</a
                     >
                   </li>
                   <li><a href="/exercises/grammar/alphabet">Әлифба</a></li>
                   <li>
                     <a href="/exercises/grammar/purity-of-speech"
-                      >Cөйләм сафлыгы</a
+                      >Сүзләр һәм схемалар</a
                     >
                   </li>
                 </ul>
@@ -170,11 +161,15 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     <a href="/exercises/artistic/music">Халык музыкасы</a>
                   </li>
                   <li>
+                    <a href="/exercises/artistic/artist">Сәнгатьтә һөнәрләр</a>
+                  </li>
+
+                  <!-- <li>
                     <a href="/exercises/artistic/dance">Күңелле биюләр</a>
-                  </li>
-                  <li>
+                  </li> -->
+                  <!-- <li>
                     <a href="/exercises/artistic/colors">Төсләрне өйрәнәбез</a>
-                  </li>
+                  </li> -->
                   <!-- <li><a href="#">Төсле һәм кара-ак</a></li> -->
                 </ul>
               </Accordion>
@@ -185,33 +180,17 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                 --primary-hover:rgba(255, 243, 197,0.8);
              --primary-light:rgba(255, 243, 197,0.4);"
                 >
-                  <li><a href="/exercises/physic/body">Тәннең төзелеше</a></li>
+                  <li><a href="/exercises/physic/body">Гәудә төзелеше</a></li>
                   <li><a href="/exercises/physic/sport">Спорт биналары</a></li>
-                  <li><a href="/exercises/physic/ball">Яңгыравыклы туп</a></li>
+                  <li>
+                    <a href="/exercises/physic/nationalgames">Милли уеннар</a>
+                  </li>
+
+                  <!-- <li><a href="/exercises/physic/ball">Яңгыравыклы туп</a></li> -->
                 </ul>
               </Accordion>
 
-              <Accordion title="Санарга өйрәнәбез" active={menu == 5}>
-                <ul
-                  style="--primary:rgb(83, 172, 232);
-                --primary-hover:rgba(210, 237, 255,0.8);
-             --primary-light:rgba(210, 237, 255,0.4);"
-                >
-                  <li>
-                    <a href="/exercises/numbers/sum">Хайваннарны саныйбыз</a>
-                  </li>
-                  <!-- <li><a href="#">Күңелле исәп</a></li> -->
-                  <li>
-                    <a href="/exercises/numbers/howmuch"
-                      >Предметларны саныйбыз</a
-                    >
-                  </li>
-                  <!-- <li><a href="#">1 - 3 саннарын өйрәнәбез</a></li> -->
-                  <!-- <li><a href="#">5 кадәр саныйбыз </a></li> -->
-                </ul>
-              </Accordion>
-
-              <Accordion title="Логопедик биремнәр" active={menu == 6}>
+              <!-- <Accordion title="Логопедик биремнәр" active={menu == 6}>
                 <ul
                   style="--primary:rgb(255, 145, 77);
                 --primary-hover:rgba(255, 145, 77,0.2);
@@ -233,7 +212,7 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     </a>
                   </li>
                 </ul>
-              </Accordion>
+              </Accordion> -->
             </div>
           </div>
 

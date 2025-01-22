@@ -5,21 +5,22 @@ import Exercice from "../../../../components/TheExercise.astro";
 
 <Exercice
   page={2}
-  menu={5}
+  menu={1}
   title="Предметларны саныйбыз"
   subtitle="Уенчыкларның санын сана"
-  next="/exercises/pronounce/ssound"
+  next="/exercises/speech/tell-story"
 >
   <div class="howmuch">
-    <div class="container_images">
-      <div>
-        <Image src="page-2/car.png" />
+    <div class="container-images">
+      <div class="dropzone" draggable="true" data-match="1">
+        <Image src="page-2/story1.jpeg" />
       </div>
-      <div>
-        <Image src="page-2/car.png" />
+
+      <div class="dropzone" draggable="true" data-match="2">
+        <Image src="page-2/story2.jpeg" />
       </div>
-      <div>
-        <Image src="page-2/car.png" />
+      <div class="dropzone" draggable="true" data-match="3">
+        <Image src="page-2/story3.jpeg" />
       </div>
     </div>
 
@@ -29,14 +30,105 @@ import Exercice from "../../../../components/TheExercise.astro";
 
     <ul class="answers">
       <li class="highAndLow">
-        <Image src="page-2/one.png" />
+        <div class="draggable" data-match="1">
+          <Image src="page-2/story4.jpeg" />
+        </div>
       </li>
       <li class="highAndLow">
-        <Image src="page-2/two.png" />
+        <div class="draggable six" data-match="3">
+          <Image src="page-2/story6.jpeg" />
+        </div>
       </li>
       <li class="highAndLow">
-        <Image src="page-2/three.png" />
+        <div class="draggable" data-match="2">
+          <Image src="page-2/story5.jpeg" />
+        </div>
       </li>
     </ul>
   </div>
 </Exercice>
+
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const draggables = document.querySelectorAll(".draggable");
+    const dropzones = document.querySelectorAll(".dropzone");
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", (e) => {
+        const matchId = draggable.getAttribute("data-match");
+        e.dataTransfer.setData("match", matchId);
+      });
+    });
+
+    dropzones.forEach((dropzone) => {
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault();
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const matchId = e.dataTransfer.getData("match");
+
+        const droppedElement = document.querySelector(
+          `.draggable[data-match="${matchId}"]`
+        );
+
+        if (matchId === dropzone.getAttribute("data-match")) {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем картинку прозрачной
+        } else {
+          dropzone.classList.add("incorrect");
+          setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+        }
+      });
+    });
+  });
+</script>
+
+<style scoped>
+  .container-images {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .howmuch .draggable {
+    cursor: grab;
+    width: 140px;
+    height: auto;
+  }
+
+  .howmuch .dropzone {
+    width: 160px;
+    overflow: hidden;
+  }
+
+  .howmuch .dropzone img {
+    transform: scale(1);
+  }
+
+  .howmuch .dropzone.correct {
+    background-color: #d4f8d4;
+    border: 1px solid #4caf50;
+  }
+
+  .howmuch .dropzone.incorrect {
+    background-color: #ffd6d6;
+    border-color: #f44336;
+  }
+
+  .container-images {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .answers {
+    display: flex;
+    gap: 20px;
+  }
+
+  .six img {
+    transform: scale(1.6);
+  }
+</style>

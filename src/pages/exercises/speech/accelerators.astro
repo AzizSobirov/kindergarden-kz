@@ -1,0 +1,74 @@
+---
+import { Image } from "ui";
+import Exercice from "../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  menu={2}
+  title="Тизәйткечләр"
+  subtitle="Минем артымнан тизәйткечне кабатла"
+  next="/exercises/artistic/draw"
+>
+  <div class="group">
+    <div class="flex-row">
+      <Image src="page-1/klubnika.jpg" />
+      <Image src="page-1/klubnika.jpg" />
+    </div>
+
+    <div class="btn-play">
+      <Image src="icons/play.svg" />
+    </div>
+
+    <p>
+      Мич башында биш мәче, биш мәченең биш башы. Биш мәченең <br /> биш башына ишелмәсен
+      мич ташы.
+    </p>
+
+    <div class="btn-play">
+      <Image src="icons/play.svg" />
+    </div>
+
+    <p>
+      Кара карга кардан бара <br />
+      Канатларын кага-кага. <br />
+      Каркылдый ул: <br />
+      “Ка-а-ар” да “ка-а-ар”
+    </p>
+
+    <div class="btn-play">
+      <Image src="icons/play.svg" />
+    </div>
+
+    <p>
+      Җиләк, җиләк, җиләкләр, <br />
+      Бик тиз тулмый чиләкләр. <br />
+      Тулыр иде чиләге, <br />
+      Юк бит аның җиләге.
+    </p>
+  </div>
+</Exercice>
+
+<style scoped>
+  .group {
+    padding: 0 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .flex-row {
+    margin-top: 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+  }
+
+  p {
+    width: 100%;
+    line-height: 1.35;
+  }
+</style>

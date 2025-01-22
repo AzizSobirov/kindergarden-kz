@@ -1,0 +1,36 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  title="Юл хәрәкәте кагыйдәләре"
+  subtitle="Җәяүлеләргә кагылышлы юл билгесен сайла"
+  next="/exercises/recognition/creml"
+>
+  <ul class="list">
+    <li class="rules">
+      <Image src="page-2/rules1.png" />
+    </li>
+    <li class="rules">
+      <Image src="page-2/rules2.png" />
+    </li>
+    <li class="rules">
+      <Image src="page-2/rules3.png" />
+    </li>
+  </ul>
+</Exercice>
+
+<style scoped>
+  .list :nth-child(1) img {
+    transform: scale(1.83);
+  }
+
+  .list .rules {
+    overflow: hidden;
+    min-height: 0;
+    width: 200px;
+    height: 200px;
+  }
+</style>

@@ -1,0 +1,83 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  menu={4}
+  title="Кызыклы сыйфатлар"
+  subtitle="Рәсемнәр арасында татар халкының милли спорт төрен сайлап ал."
+>
+  <div class="answers">
+    <div class="row">
+      <div class="national4">
+        <Image src="page-2/national4.jpg" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="national1">
+        <Image src="page-2/national.png" />
+      </div>
+      <div class="national5">
+        <Image src="page-2/national3.jpg" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="national3">
+        <Image src="page-2/national5.jpg" />
+      </div>
+      <div class="national2">
+        <Image src="page-2/national2.webp" />
+      </div>
+    </div>
+    <div class="row">
+      <div class="national6">
+        <Image src="page-2/national6.jpeg" />
+      </div>
+    </div>
+  </div>
+</Exercice>
+
+<style scoped>
+  .answers {
+    gap: 20px;
+    justify-content: space-between;
+  }
+
+  .national1,
+  .national2,
+  .national3,
+  .national4,
+  .national5,
+  .national6 {
+    width: 300px;
+    border: 2px solid rgb(88, 183, 112);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .national5 img,
+  .national2 img {
+    transform: scale(1.4);
+  }
+
+  .national4 {
+    width: 100%;
+  }
+
+  .national6 {
+    width: 500px;
+    margin: auto;
+  }
+
+  .answers img {
+    width: 100%;
+  }
+
+  .row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+  }
+</style>

@@ -22,12 +22,12 @@ import Exercice from "../../../../components/TheExercise.astro";
     </li>
   </ul>
 
-  <div class="btn-play" data-src="/assets/audios/kazan-bashkalam.mp3">
+  <div class="btn-play" data-src="/assets/audios/Kazan bashkalam 2 new.mp3">
     <Image src="icons/play.svg" />
   </div>
 
   <b class="gerb-flag-block"
-    >Казан – республика башкаласы. Бөтен дөнья татарлары мәртәзе.</b
+    >Казан – республика башкаласы. Бөтен дөнья татарлары мәркәзе.</b
   >
 
   <b class="gerb-flag-block">Казан Кремле</b>
@@ -36,8 +36,8 @@ import Exercice from "../../../../components/TheExercise.astro";
     чыккан, ул сүз "шәһәр" дигәнне аңлата. Безнең Казан Кремленең исеме бөтен
     доньяга тарихи һәйкәл дип таралган. Аның диварлары бик калын, озын, бик
     биек. Безнең Казан шәһәре башта шул Кремль эчендә булган. Кремль дивары
-    дошманнардан саклап килгән дә. Почмакларда манаралар тора. Элек алар күп –
-    13кә хәтле булганнар. Мондый манаралар күзәтү манаралары дип атала. Казан
+    дошманнардан саклап килгән. Почмакларда манаралар тора. Элек алар күп – 13кә
+    хәтле булганнар. Мондый манаралар күзәтү манаралары дип атала. Казан
     Кремлендә Кол Шәриф мәчете төзелгән.
   </span>
 
@@ -59,6 +59,18 @@ import Exercice from "../../../../components/TheExercise.astro";
     киерелгән иңбашлар, буйсынмас ихтыярлы куз карашы батырлык, әхлакый көч,
     каһарманлык турында сөйли.</span
   >
+
+  <div class="btn-play" data-src="/assets/audios/Kazan Bashkalam 3 new.ogg">
+    <Image src="icons/play.svg" />
+  </div>
+
+  <strong> Сөембикә бинасында ничә кат бар? Дөрес җавапны сайла </strong>
+
+  <div class="numbers">
+    <span>8</span>
+    <span>7</span>
+    <span>9</span>
+  </div>
 </Exercice>
 
 <script is:inline>
@@ -107,26 +119,7 @@ import Exercice from "../../../../components/TheExercise.astro";
   });
 </script>
 
-<style scoped></style>
-
-<style lang="scss">
-  .btn-play {
-    margin: 20px 0;
-    padding: 10px;
-    width: 80px;
-    background: var(--primary);
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition-ease);
-
-    &:hover {
-      opacity: 0.8;
-    }
-  }
-
+<style lang="scss" scoped>
   .purity-of-speech .draggable[data-match="1"] {
     background: red;
   }
@@ -147,5 +140,41 @@ import Exercice from "../../../../components/TheExercise.astro";
   .purity-of-speech .incorrect {
     background-color: #ffd6d6;
     border-color: #f44336;
+  }
+
+  .numbers {
+    margin-top: 20px;
+    padding: 0 20px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+
+    span {
+      cursor: pointer;
+      padding-bottom: 20px;
+      height: 200px;
+      color: var(--primary);
+      font-size: 128px;
+      font-family: "Gagalin", sans-serif;
+      border: 1px solid rgba($color: #000000, $alpha: 0.2);
+      border-radius: 15px;
+      transition: var(--transition-ease);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:hover {
+        border-color: var(--primary);
+      }
+
+      &:nth-child(2) {
+        color: orange;
+      }
+
+      &:nth-child(3) {
+        color: #00adff;
+      }
+    }
   }
 </style>

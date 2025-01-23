@@ -9,6 +9,7 @@ import Exercice from "../../../../components/TheExercise.astro";
   title="Татар милли киемнәр"
   subtitle="Әлфиягә киенергә булыш. Татар милли костюмының үзенчәлекләре турында сөйлә."
   next="/exercises/artistic/music"
+  audio="Tatar milli kiemner.ogg"
 >
   <div class="match-container">
     <div class="dropzones-container">
@@ -30,18 +31,18 @@ import Exercice from "../../../../components/TheExercise.astro";
     </div>
   </div>
 
-  <div class="btn-play" data-src="/assets/audios/kiyim.ogg">
+  <div class="btn-play" data-src="/assets/audios/Tatar milli kiemner 2.ogg">
     <Image src="icons/play.svg" />
   </div>
 
-  <b class="title">Кызлар өчен татар костюмы.</b>
   <span style="padding-inline:5px; line-height: 1.35; text-align: justify;">
-    Ир-ат киеме: озын күлмәк, ыштан, камзул, билбау, бишмәт керә. Хатын-кыз
-    киеме: күлмәк, алъяпкыч, ыштан, кукрәкчә, кәзәкидән тора. Калфак кызлар өчен
-    кайчандыр бик кадерле әйбер булган. Кичләр утырып, алар аңа матур-матур
-    бизәкләр чиккән, аны киеп кунакка, бәйрәмнәргэ барган. Бүгенге көндэ
-    кызларны уңышлы прическалары ничек бизәсә, ул заманда калфаклары шулай бизәп
-    торган. Бай һәм затлы милли татар костюмына калфак бик тә килешкән.
+    <span class="underline">Ир-ат киеме:</span> озын күлмәк, ыштан, камзул, билбау,
+    бишмәт керә. <span class="underline">Хатын-кыз киеме:</span> күлмәк, алъяпкыч,
+    ыштан, кукрәкчә, кәзәкидән тора. Калфак кызлар өчен кайчандыр бик кадерле әйбер
+    булган. Кичләр утырып, алар аңа матур-матур бизәкләр чиккән, аны киеп кунакка,
+    бәйрәмнәргэ барган. Бүгенге көндэ кызларны уңышлы прическалары ничек бизәсә,
+    ул заманда калфаклары шулай бизәп торган. Бай һәм затлы милли татар костюмына
+    калфак бик тә килешкән.
   </span>
   <script is:inline>
     document.addEventListener("DOMContentLoaded", () => {
@@ -88,20 +89,7 @@ import Exercice from "../../../../components/TheExercise.astro";
 </Exercice>
 
 <style lang="scss">
-  .btn-play {
-    margin: 0 0 20px;
-    padding: 10px;
-    width: 80px;
-    background: var(--primary);
-    border-radius: 9999px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: var(--transition-ease);
-
-    &:hover {
-      opacity: 0.8;
-    }
+  .underline {
+    text-decoration: underline;
   }
 </style>

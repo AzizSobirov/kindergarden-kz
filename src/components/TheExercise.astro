@@ -8,9 +8,17 @@ interface Props {
   title: string;
   subtitle: string;
   next?: string;
+  audio?: string;
 }
 
-const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
+const {
+  menu = 1,
+  page,
+  title,
+  subtitle,
+  next = "#",
+  audio = "1.mp3",
+} = Astro.props;
 ---
 
 <App title={title}>
@@ -78,11 +86,7 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     <a href="/exercises/recognition/home">Туган җирем</a>
                   </li> -->
 
-                  <li>
-                    <a href="/exercises/recognition/rules">
-                      Юл хәрәкәте кагыйдәләре
-                    </a>
-                  </li>
+               
 
                   <li>
                     <a href="/exercises/recognition/creml">Казан-Башкалам</a>
@@ -104,6 +108,12 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
 
                   <li><a href="/exercises/logics/extra-row">Өстәмә рәт</a></li>
                   <li><a href="/exercises/logics/losses">Югалтулар</a></li>
+
+                  <li>
+                    <a href="/exercises/recognition/rules">
+                      Юл хәрәкәте кагыйдәләре
+                    </a>
+                  </li>
                   <!-- <li>
                     <a href="/exercises/logics/hard-and-soft">Каты һәм йомшак</a
                     >
@@ -112,7 +122,7 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                   <!-- <li><a href="#">Рәсемне җый</a></li> -->
 
                   <li>
-                    <a href="/exercises/numbers/sum">Хайваннарны саныйбыз</a>
+                    <a href="/exercises/numbers/sum">Хайваннарны сана</a>
                   </li>
                   <li>
                     <a href="/exercises/numbers/howmuch"
@@ -190,17 +200,17 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                 </ul>
               </Accordion>
 
-              <!-- <Accordion title="Логопедик биремнәр" active={menu == 6}>
+              <Accordion title="Логопедик биремнәр" active={menu == 6}>
                 <ul
                   style="--primary:rgb(255, 145, 77);
                 --primary-hover:rgba(255, 145, 77,0.2);
              --primary-light:rgba(255, 145, 77,0.1);"
                 >
-                  <li>
+                  <!-- <li>
                     <a href="/exercises/pronounce/ssound"
                       >Иҗекләрне кабатла - “C” авазы</a
                     >
-                  </li>
+                  </li> -->
                   <li>
                     <a href="/exercises/pronounce/zsound"
                       >Бармагың белән үткәр - “З” авазы
@@ -212,7 +222,7 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
                     </a>
                   </li>
                 </ul>
-              </Accordion> -->
+              </Accordion>
             </div>
           </div>
 
@@ -238,7 +248,7 @@ const { menu = 1, page, title, subtitle, next = "#" } = Astro.props;
               </div>
             </div>
 
-            <div class="result__actions" data-audio="/assets/audios/1.mp3">
+            <div class="result__actions" data-audio={`/assets/audios/${audio}`}>
               <div
                 class="icon"
                 role="button"

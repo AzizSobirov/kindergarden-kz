@@ -6,8 +6,10 @@ import Exercice from "../../../../components/TheExercise.astro";
 <Exercice
   page={2}
   menu={4}
-  title="Кызыклы сыйфатлар"
+  title="Милли уеннар"
   subtitle="Рәсемнәр арасында татар халкының милли спорт төрен сайлап ал."
+  next="/exercises/pronounce/zsound"
+  audio="Milli yennar.ogg"
 >
   <div class="answers">
     <div class="row">
@@ -19,16 +21,17 @@ import Exercice from "../../../../components/TheExercise.astro";
       <div class="national1">
         <Image src="page-2/national.png" />
       </div>
-      <div class="national5">
-        <Image src="page-2/national3.jpg" />
+      <div class="national2">
+        <Image src="page-2/national2.webp" />
       </div>
     </div>
     <div class="row">
       <div class="national3">
         <Image src="page-2/national5.jpg" />
       </div>
-      <div class="national2">
-        <Image src="page-2/national2.webp" />
+
+      <div class="national5">
+        <Image src="page-2/national3.jpg" />
       </div>
     </div>
     <div class="row">
@@ -52,9 +55,14 @@ import Exercice from "../../../../components/TheExercise.astro";
   .national5,
   .national6 {
     width: 300px;
-    border: 2px solid rgb(88, 183, 112);
+    border: 2px solid rgb(190, 190, 190);
     border-radius: 10px;
     overflow: hidden;
+    transition: var(--transition-ease);
+
+    &:hover {
+      border-color: rgb(88, 183, 112);
+    }
   }
 
   .national5 img,
@@ -67,7 +75,7 @@ import Exercice from "../../../../components/TheExercise.astro";
   }
 
   .national6 {
-    width: 500px;
+    width: 100%;
     margin: auto;
   }
 

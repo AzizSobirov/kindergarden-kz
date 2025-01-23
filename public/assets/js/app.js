@@ -679,8 +679,7 @@ if (exercise) {
   const btnPlayIcon = btnPlay.querySelector("img");
 
   const audio = new Audio();
-  // audio.src = actions.dataset.audio;
-  audio.src = "https://ct.kids-smart.ru/storage/audio/exercises/64.webm?v=2";
+  audio.src = actions.dataset.audio;
 
   let isPlaying = false;
   let isEnded = false;

@@ -7,7 +7,7 @@ import Exercice from "../../../../components/TheExercise.astro";
   page={2}
   menu={1}
   title="Предметларны саныйбыз"
-  subtitle="Уенчыкларның санын сана"
+  subtitle="Рәсемнәр белән тиешле саннарны туташтыр"
   next="/exercises/speech/tell-story"
 >
   <div class="howmuch">
@@ -31,17 +31,17 @@ import Exercice from "../../../../components/TheExercise.astro";
     <ul class="answers">
       <li class="highAndLow">
         <div class="draggable" data-match="1">
-          <Image src="page-2/story4.jpeg" />
+          <span class="number" style="color:red">8</span>
         </div>
       </li>
       <li class="highAndLow">
         <div class="draggable six" data-match="3">
-          <Image src="page-2/story6.jpeg" />
+          <span class="number" style="color:green">6</span>
         </div>
       </li>
       <li class="highAndLow">
         <div class="draggable" data-match="2">
-          <Image src="page-2/story5.jpeg" />
+          <span class="number" style="color:orange">4</span>
         </div>
       </li>
     </ul>
@@ -100,11 +100,28 @@ import Exercice from "../../../../components/TheExercise.astro";
 
   .howmuch .dropzone {
     width: 160px;
+    height: 220px;
     overflow: hidden;
+  }
+
+  .howmuch .dropzone:nth-child(1) > img {
+    margin-top: 30px;
+    margin-right: 10px;
   }
 
   .howmuch .dropzone img {
     transform: scale(1);
+    height: 100%;
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .howmuch .dropzone.correct > img {
+    display: none;
+  }
+
+  .howmuch .dropzone.correct > .draggable {
+    opacity: 1 !important;
   }
 
   .howmuch .dropzone.correct {
@@ -121,6 +138,18 @@ import Exercice from "../../../../components/TheExercise.astro";
     display: flex;
     gap: 10px;
     margin-bottom: 1rem;
+  }
+
+  .draggable {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .number {
+    margin: 0 auto;
+    font-size: 120px;
+    font-family: "Gagalin", sans-serif;
   }
 
   .answers {

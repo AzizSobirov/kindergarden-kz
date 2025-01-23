@@ -54,18 +54,18 @@ import Exercice from "../../../../components/TheExercise.astro";
   <div class="list-drag">
     <ul>
       <li>
-        <div class="box draggable" draggable="true" data-match="1">
+        <div class="box draggable2" draggable="true" data-match="1">
           <Image src="gerb.jpg" />
         </div>
       </li>
       <li>
-        <div class="box draggable" draggable="true" data-match="2">
+        <div class="box draggable2" draggable="true" data-match="2">
           <Image src="gerb2.webp" />
         </div>
-        <div class="box dropzone" data-match="2"></div>
+        <div class="box dropzone2" data-match="2"></div>
       </li>
       <li>
-        <div class="box draggable" draggable="true" data-match="3">
+        <div class="box draggable2" draggable="true" data-match="3">
           <Image src="gerb3.png" />
         </div>
       </li>
@@ -76,8 +76,8 @@ import Exercice from "../../../../components/TheExercise.astro";
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
     const listDrag = document.querySelectorAll(".list-drag ul li");
-    const draggables = document.querySelectorAll(".draggable");
-    const dropzones = document.querySelectorAll(".dropzone");
+    const draggables = document.querySelectorAll(".draggable2");
+    const dropzones = document.querySelectorAll(".dropzone2");
 
     draggables.forEach((draggable) => {
       draggable.addEventListener("dragstart", (e) => {
@@ -96,7 +96,7 @@ import Exercice from "../../../../components/TheExercise.astro";
         const matchId = e.dataTransfer.getData("match");
 
         const droppedElement = document.querySelector(
-          `.draggable[data-match="${matchId}"]`
+          `.draggable2[data-match="${matchId}"]`
         );
 
         // Логика перетаскивания
@@ -108,7 +108,7 @@ import Exercice from "../../../../components/TheExercise.astro";
           listDrag[0].style.display = "none";
           listDrag[2].style.display = "none";
 
-          let draggable = listDrag[1].querySelector(".draggable");
+          let draggable = listDrag[1].querySelector(".draggable2");
           draggable.style.display = "none";
         } else if (
           (matchId === "2" || matchId === "3") &&

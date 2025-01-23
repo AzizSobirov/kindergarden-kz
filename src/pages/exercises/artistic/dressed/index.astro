@@ -35,6 +35,8 @@ import Exercice from "../../../../components/TheExercise.astro";
     <Image src="icons/play.svg" />
   </div>
 
+  <Image class="image" src="milliy-kiyimlar.jpg" />
+
   <span style="padding-inline:5px; line-height: 1.35; text-align: justify;">
     <span class="underline">Ир-ат киеме:</span> озын күлмәк, ыштан, камзул, билбау,
     бишмәт керә. <span class="underline">Хатын-кыз киеме:</span> күлмәк, алъяпкыч,
@@ -44,52 +46,57 @@ import Exercice from "../../../../components/TheExercise.astro";
     ул заманда калфаклары шулай бизәп торган. Бай һәм затлы милли татар костюмына
     калфак бик тә килешкән.
   </span>
-  <script is:inline>
-    document.addEventListener("DOMContentLoaded", () => {
-      const draggables = document.querySelectorAll(".draggable");
-      const dropzones = document.querySelectorAll(".dropzone");
+</Exercice>
 
-      draggables.forEach((draggable) => {
-        draggable.addEventListener("dragstart", (e) => {
-          // Убедимся, что атрибут data-match установлен
-          const matchId = draggable.getAttribute("data-match");
-          if (matchId) {
-            e.dataTransfer.setData("match", matchId);
-          }
-        });
-      });
+<script is:inline>
+  document.addEventListener("DOMContentLoaded", () => {
+    const draggables = document.querySelectorAll(".draggable");
+    const dropzones = document.querySelectorAll(".dropzone");
 
-      dropzones.forEach((dropzone) => {
-        dropzone.addEventListener("dragover", (e) => {
-          e.preventDefault(); // Разрешаем сброс
-        });
-
-        dropzone.addEventListener("drop", (e) => {
-          e.preventDefault();
-          const matchId = e.dataTransfer.getData("match");
-
-          if (matchId) {
-            if (dropzone.getAttribute("data-match") === matchId) {
-              dropzone.classList.add("correct");
-              const draggedElement = document.querySelector(
-                `.draggable[data-match="${matchId}"]`
-              );
-              dropzone.appendChild(draggedElement); // Помещаем элемент в зону
-            } else {
-              dropzone.classList.add("incorrect");
-              setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
-            }
-          } else {
-            console.error("matchId is null or undefined");
-          }
-        });
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", (e) => {
+        // Убедимся, что атрибут data-match установлен
+        const matchId = draggable.getAttribute("data-match");
+        if (matchId) {
+          e.dataTransfer.setData("match", matchId);
+        }
       });
     });
-  </script>
-</Exercice>
+
+    dropzones.forEach((dropzone) => {
+      dropzone.addEventListener("dragover", (e) => {
+        e.preventDefault(); // Разрешаем сброс
+      });
+
+      dropzone.addEventListener("drop", (e) => {
+        e.preventDefault();
+        const matchId = e.dataTransfer.getData("match");
+
+        if (matchId) {
+          if (dropzone.getAttribute("data-match") === matchId) {
+            dropzone.classList.add("correct");
+            const draggedElement = document.querySelector(
+              `.draggable[data-match="${matchId}"]`
+            );
+            dropzone.appendChild(draggedElement); // Помещаем элемент в зону
+          } else {
+            dropzone.classList.add("incorrect");
+            setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
+          }
+        } else {
+          console.error("matchId is null or undefined");
+        }
+      });
+    });
+  });
+</script>
 
 <style lang="scss">
   .underline {
     text-decoration: underline;
+  }
+
+  .image {
+    width: 400px;
   }
 </style>

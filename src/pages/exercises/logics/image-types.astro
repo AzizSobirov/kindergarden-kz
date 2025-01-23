@@ -1,0 +1,42 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../components/TheExercise.astro";
+---
+
+<Exercice
+  page={2}
+  menu={3}
+  title="Рәсемнәрнең төрләре"
+  subtitle="Рәсемнәрдә нәрсә сурәтләнгән? Кайсы рәсемне натюрморт дип атап була"
+  next="/exercises/artistic/artist"
+  audio="Resemnernen torlere new.ogg"
+>
+  <ul class="list">
+    <li class="li">
+      <Image src="page-1/type-1.jpg" />
+    </li>
+    <li class="li">
+      <Image src="page-1/type-2.jpg" />
+    </li>
+    <li class="li">
+      <Image src="page-1/type-3.jpg" />
+    </li>
+  </ul>
+</Exercice>
+
+<style lang="scss" scoped>
+  .li {
+    padding: 0 !important;
+    overflow: hidden;
+
+    &:hover {
+      border-color: var(--primary);
+    }
+  }
+
+  .li img {
+    width: 100% !important;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>

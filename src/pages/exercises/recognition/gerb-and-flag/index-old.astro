@@ -10,20 +10,9 @@ import Exercice from "../../../../components/TheExercise.astro";
   next="/exercises/awareness/metro"
   audio="Tatarstan simvolikasi 2.ogg"
 >
-  <div class="flag-container">
-    <b class="gerb-flag-block"> Татарстан Республикасы Дәүләт флагы </b>
-    <div class="dropzones-container">
-      <div class="mybox mydropzone green" data-match="green"></div>
-      <div class="mybox mydropzone white" data-match="white"></div>
-      <div class="mybox mydropzone red" data-match="red"></div>
-    </div>
-
-    <div class="draggables-container">
-      <div class="mybox draggable" draggable="true" data-match="red"></div>
-      <div class="mybox draggable" draggable="true" data-match="white"></div>
-      <div class="mybox draggable" draggable="true" data-match="blue"></div>
-      <div class="mybox draggable" draggable="true" data-match="green"></div>
-    </div>
+  <b class="gerb-flag-block"> Татарстан Республикасы Дәүләт флагы (әләм) </b>
+  <div class="answers">
+    <Image class="flag-img" src="flag.jpg" />
   </div>
 
   <div class="btn-play" data-src="/assets/audios/simvol-2.ogg">
@@ -45,8 +34,6 @@ import Exercice from "../../../../components/TheExercise.astro";
     <Image class="gerb-img" src="gerb.jpg" />
   </div>
 
-  <br>
-
   <div class="btn-play" data-src="/assets/audios/simvol-3.ogg">
     <Image src="icons/play.svg" />
   </div>
@@ -59,15 +46,38 @@ import Exercice from "../../../../components/TheExercise.astro";
     Калкан тынычлыкны белдерә, ә чәчәк – озын гомер билгесе. Яшел боҗра эчендә
     татар орнаменты чигелгән. Аста "ТАТАРСТАН" сузе язылган.
   </span>
+
+  <br />
+
+  <strong>Татарстан гербы уртасында нинди тамча сурәтләнгән?</strong>
+
+  <div class="list-drag">
+    <ul>
+      <li>
+        <div class="box draggable" draggable="true" data-match="1">
+          <Image src="gerb.jpg" />
+        </div>
+      </li>
+      <li>
+        <div class="box draggable" draggable="true" data-match="2">
+          <Image src="gerb2.webp" />
+        </div>
+        <div class="box dropzone" data-match="2"></div>
+      </li>
+      <li>
+        <div class="box draggable" draggable="true" data-match="3">
+          <Image src="gerb3.png" />
+        </div>
+      </li>
+    </ul>
+  </div>
 </Exercice>
 
 <script is:inline>
   document.addEventListener("DOMContentLoaded", () => {
+    const listDrag = document.querySelectorAll(".list-drag ul li");
     const draggables = document.querySelectorAll(".draggable");
-    const dropzones = document.querySelectorAll(".mydropzone");
-    const dropzonesContainer = document.querySelector(".dropzones-container");
-
-    let correctCount = 0; // Счётчик правильных перетаскиваний
+    const dropzones = document.querySelectorAll(".dropzone");
 
     draggables.forEach((draggable) => {
       draggable.addEventListener("dragstart", (e) => {
@@ -76,7 +86,7 @@ import Exercice from "../../../../components/TheExercise.astro";
       });
     });
 
-    dropzones.forEach((dropzone) => {
+    dropzones.forEach((dropzone, index, arr) => {
       dropzone.addEventListener("dragover", (e) => {
         e.preventDefault();
       });
@@ -89,18 +99,24 @@ import Exercice from "../../../../components/TheExercise.astro";
           `.draggable[data-match="${matchId}"]`
         );
 
-        if (matchId === dropzone.getAttribute("data-match")) {
+        // Логика перетаскивания
+        if (matchId === "1" && dropzone.getAttribute("data-match") === "2") {
           dropzone.appendChild(droppedElement);
           dropzone.classList.add("correct");
-          dropzone.style.backgroundColor = matchId;
-          droppedElement.style.opacity = "0";
-          dropzone.style.border = "none"; // Убираем обводку после правильного перетаскивания
-          correctCount++; // Увеличиваем счётчик
+          // droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
 
-          // Проверяем, если все три элемента перетащены правильно
-          if (correctCount === 3) {
-            dropzonesContainer.style.border = "1px solid black"; // Добавляем рамку вокруг контейнера
-          }
+          listDrag[0].style.display = "none";
+          listDrag[2].style.display = "none";
+
+          let draggable = listDrag[1].querySelector(".draggable");
+          draggable.style.display = "none";
+        } else if (
+          (matchId === "2" || matchId === "3") &&
+          dropzone.getAttribute("data-match") !== "2"
+        ) {
+          dropzone.appendChild(droppedElement);
+          dropzone.classList.add("correct");
+          droppedElement.style.opacity = "0"; // Делаем квадратик прозрачным
         } else {
           dropzone.classList.add("incorrect");
           setTimeout(() => dropzone.classList.remove("incorrect"), 1000);
@@ -111,6 +127,23 @@ import Exercice from "../../../../components/TheExercise.astro";
 </script>
 
 <style lang="scss" scoped>
+  .btn-play {
+    margin: 20px 0;
+    padding: 10px;
+    width: 80px;
+    background: var(--primary);
+    border-radius: 9999px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-ease);
+
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+
   .list-drag {
     margin-top: 20px;
     width: 100%;
@@ -159,100 +192,5 @@ import Exercice from "../../../../components/TheExercise.astro";
   .dropzone .draggable {
     padding: 0 !important;
     border: none !important;
-  }
-
-  .flag-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    gap: 2rem;
-    margin: 2rem auto;
-  }
-
-  .dropzones-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    gap: 0;
-  }
-
-  .dropzones-container .mybox {
-    border-radius: 0;
-  }
-
-  .draggables-container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    gap: 10px;
-  }
-
-  .mybox {
-    width: 200px;
-    border: 2px dashed #ccc;
-    border-radius: 8px;
-    background: #f0f0f0;
-  }
-
-  .draggable {
-    width: 50px;
-    height: 50px;
-    cursor: -webkit-grab;
-    cursor: grab;
-    border: 2px solid #ccc;
-  }
-
-  .draggable[data-match="red"] {
-    background-color: red;
-  }
-
-  .draggable[data-match="white"] {
-    background-color: #fff;
-    border: 2px solid #ccc;
-  }
-
-  .draggable[data-match="blue"] {
-    background-color: #00f;
-  }
-
-  .draggable[data-match="green"] {
-    background-color: green;
-  }
-
-  .mydropzone.correct {
-    background-color: #d4f8d4;
-    border-color: #4caf50;
-  }
-
-  .mydropzone.incorrect {
-    background-color: #ffd6d6;
-    border-color: #f44336;
-  }
-
-  .mydropzone {
-    width: 350px;
-  }
-
-  .green,
-  .red {
-    height: 80px;
-  }
-
-  .white {
-    height: 25px;
   }
 </style>

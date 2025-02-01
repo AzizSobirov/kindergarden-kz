@@ -38,7 +38,12 @@ const {
           </li>
           <li class="active">
             <a href="#" class="disabled">
-              <span>{title}</span>
+              <span
+                set:html={title.replace(
+                  "Ә",
+                  "<span style='font-family: Montserrat; font-weight: 500;'>Ә</span>"
+                )}
+              />
             </a>
           </li>
         </ol>
@@ -242,7 +247,6 @@ const {
           </div>
 
           <div class="result">
-
             <div class="result__pupil"></div>
 
             <div class="result__level">

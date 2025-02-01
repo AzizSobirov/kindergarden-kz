@@ -782,6 +782,7 @@ if (exercise) {
 
   if (selectedPupil) {
     resultPupil.innerHTML = `
+    <img src="/assets/img/modal/1.png" alt="" />
     Биремне үтә: ${selectedPupil}
     <span>Үзгәртергә</span>
     `;

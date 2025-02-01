@@ -17,7 +17,9 @@ const { template } = Astro.props;
           <span> Саба муниципаль <br /> районы </span>
         </a>
 
-        <div class="header__name">Саба 6нчы «Балачак» балалар бакчасы</div>
+        <div class="header__name">
+          казан шəhəренең 405нче «нəүрүз» балалар бакчасы
+        </div>
       </div>
 
       <div class="header__content-right">
@@ -33,6 +35,9 @@ const { template } = Astro.props;
           </li>
           <li class="header__menu-item">
             <a href="/stats">Хисаплар</a>
+          </li>
+          <li class="header__menu-item">
+            <a href="/assistance">Методик ярдәмлек</a>
           </li>
         </ul>
 
@@ -54,8 +59,7 @@ const { template } = Astro.props;
           template && template == "2" && (
             <div class="header__idara">
               <div class="header__idara-text">
-                Саба муниципаль районы башкарма <br /> комитетының мәгариф
-                идарәсе
+                Казан шәһәр округы башкарма <br /> комитетының мәгариф идарәсе
               </div>
               <Image src="study.png" />
             </div>

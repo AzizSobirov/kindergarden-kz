@@ -1,4 +1,14 @@
 const userType = sessionStorage.getItem("user-type") || "";
+const selectedPupil = sessionStorage.getItem("selected-pupil") || "";
+
+const dataFors = document.querySelectorAll("[data-for]");
+dataFors.forEach((item) => {
+  if (item.dataset.for == userType) {
+    item.style.display = "flex";
+  } else {
+    item.style.display = "none";
+  }
+});
 
 const startSection = document.querySelector(".start");
 if (startSection) {
@@ -37,7 +47,7 @@ if (startSection) {
         menuItems.forEach((item, index) => {
           item.style.display = "flex";
 
-          if (index == menuItems.length - 1) {
+          if (index == menuItems.length - 2) {
             let a = item.querySelector("a");
             a.href = "/stats";
           }
@@ -55,6 +65,20 @@ if (startSection) {
   btnText.addEventListener("click", () => {
     startText.style.display = "none";
     startSelect.style.display = "flex";
+  });
+}
+
+const chooseModal = document.querySelector(".modal .choose");
+if (chooseModal) {
+  const items = chooseModal.querySelectorAll("span");
+
+  items.forEach((item, index, arr) => {
+    item.addEventListener("click", () => {
+      let p = item.querySelector("p");
+
+      sessionStorage.setItem("selected-pupil", p.textContent);
+      window.location = "/exercises/5-6";
+    });
   });
 }
 
@@ -87,7 +111,6 @@ if (header) {
   const name = header.querySelector(".header__name");
   const author = header.querySelector(".header__author");
   const idara = header.querySelector(".header__idara");
-  const pupil = header.querySelector(".header__pupil");
 
   if (userType == "admin" && idara) {
     idara.style.display = "flex";
@@ -117,7 +140,7 @@ if (header) {
 
   menuItems.forEach((item, index) => {
     if (userType == "admin") {
-      if (index == menuItems.length - 1) {
+      if (index == menuItems.length - 2) {
         let a = item.querySelector("a");
         a.href = "/stats/general";
       } else if (index != 0) {
@@ -127,7 +150,7 @@ if (header) {
 
     if (userType == "parent") {
       if (index != 0) {
-        if (index != menuItems.length - 2) {
+        if (index != menuItems.length - 3) {
           item.style.display = "none";
         }
       }
@@ -154,6 +177,11 @@ if (header) {
       window.location.pathname.startsWith("/stats")
     ) {
       isActive = true;
+    } else if (
+      linkUrl.pathname.includes("/assistant") &&
+      window.location.pathname.startsWith("/assistant")
+    ) {
+      isActive = true;
     } else {
       isActive = false;
     }
@@ -174,7 +202,7 @@ if (profile) {
   if (userType == "parent") {
     name.innerHTML = "Хисматуллин Илнур <br/> Айдар улы";
     desc.innerHTML =
-      "Саба 6нчы «Балачак» балалар бакчасы, <br/> Урта төркем укучысы, 5 яшь";
+      "казан шəhәренең 405нче «нәүрүз» балалар бакчасы, <br/> Урта төркем укучысы, 5 яшь";
     // name.style.display = "none";
     // desc.style.display = "none";
     avatar.src = "/assets/img/little-boy.jpg";
@@ -419,14 +447,14 @@ if (chartCategories3) {
     type: "bar",
     data: {
       labels: [
-        "САБА 6НЧЫ «БАЛАЧАК» БАЛАЛАР БАКЧАСЫ",
-        "САБА 1НЧЕ «ШАТЛЫК» БАЛАЛАР БАКЧАСЫ",
-        "САБА 2НЧЕ «ӘЛЛҮКИ» БАЛАЛАР БАКЧАСЫ",
-        "САБА 4НЧЕ «КЫҢГЫРАУ» БАЛАЛАР БАКЧАСЫ",
-        "КОРСАБАШ «КОЯШКАЙ» БАЛАЛАР БАКЧАСЫ",
-        "ИСКЕ МИЧӘН «ТАН» БАЛАЛАР БАКЧАСЫ",
-        "ТИМЕРШИК «КОЯШКАЙ» БАЛАЛАР БАКЧАСЫ",
-        "САБА 5НЧЕ «БӘЛӘКӘЧ» БАЛАЛАР БАКЧАСЫ",
+        "Казанның 6НЧЫ БАЛАЛАР БАКЧАСЫ",
+        "Казанның 1НЧЕ БАЛАЛАР БАКЧАСЫ",
+        "Казанның 2НЧЕ БАЛАЛАР БАКЧАСЫ",
+        "Казанның 4НЧЕ БАЛАЛАР БАКЧАСЫ",
+        "Казанның КОРСАБАШ БАЛАЛАР БАКЧАСЫ",
+        "Казанның ИСКЕ МИЧӘН БАЛАЛАР БАКЧАСЫ",
+        "Казанның ТИМЕРШИК БАЛАЛАР БАКЧАСЫ",
+        "Казанның 5НЧЕ БАЛАЛАР БАКЧАСЫ",
       ],
       datasets: [
         {
@@ -516,14 +544,14 @@ if (chartCategories4) {
     type: "bar",
     data: {
       labels: [
-        "САБА 6НЧЫ «БАЛАЧАК» БАЛАЛАР БАКЧАСЫ",
-        "САБА 1НЧЕ «ШАТЛЫК» БАЛАЛАР БАКЧАСЫ",
-        "САБА 2НЧЕ «ӘЛЛҮКИ» БАЛАЛАР БАКЧАСЫ",
-        "САБА 4НЧЕ «КЫҢГЫРАУ» БАЛАЛАР БАКЧАСЫ",
-        "КОРСАБАШ «КОЯШКАЙ» БАЛАЛАР БАКЧАСЫ",
-        "ИСКЕ МИЧӘН «ТАН» БАЛАЛАР БАКЧАСЫ",
-        "ТИМЕРШИК «КОЯШКАЙ» БАЛАЛАР БАКЧАСЫ",
-        "САБА 5НЧЕ «БӘЛӘКӘЧ» БАЛАЛАР БАКЧАСЫ",
+        "Казанның 6НЧЫ БАЛАЛАР БАКЧАСЫ",
+        "Казанның 1НЧЕ БАЛАЛАР БАКЧАСЫ",
+        "Казанның 2НЧЕ БАЛАЛАР БАКЧАСЫ",
+        "Казанның 4НЧЕ БАЛАЛАР БАКЧАСЫ",
+        "Казанның КОРСАБАШ БАЛАЛАР БАКЧАСЫ",
+        "Казанның ИСКЕ МИЧӘН БАЛАЛАР БАКЧАСЫ",
+        "Казанның ТИМЕРШИК БАЛАЛАР БАКЧАСЫ",
+        "Казанның 5НЧЕ БАЛАЛАР БАКЧАСЫ",
       ],
       datasets: [
         {
@@ -678,6 +706,8 @@ if (exercise) {
   const btnPlay = actions.querySelector("[data-action=play]");
   const btnPlayIcon = btnPlay.querySelector("img");
 
+  const resultPupil = exercise.querySelector(".result__pupil");
+
   const audio = new Audio();
   audio.src = actions.dataset.audio;
 
@@ -737,6 +767,13 @@ if (exercise) {
     isPlaying = false;
     isEnded = true;
   });
+
+  if (selectedPupil) {
+    resultPupil.innerHTML = `
+    Биремне үтә: ${selectedPupil}
+    <span>Үзгәртергә</span>
+    `;
+  }
 }
 
 const getAllPlayBtns = document.querySelectorAll(".btn-play");

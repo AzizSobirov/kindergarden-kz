@@ -51,7 +51,7 @@
 
   &__name {
     padding: 10px;
-    font-size: 17px;
+    font-size: 16px;
     font-weight: 700;
     text-transform: uppercase;
     background: var(--secondary);
@@ -88,6 +88,7 @@
       font-weight: 700;
       border-radius: 4px;
       transition: var(--transition-ease);
+      white-space: nowrap;
 
       &:hover,
       &.active {

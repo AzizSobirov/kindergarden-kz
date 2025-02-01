@@ -22,13 +22,31 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
         <H2>Балалар бакчасы өчен укыту системасы</H2>
         <div class="intro__subtitle">баланың яшен сайлагыз:</div>
         <div class="intro__list">
-          <a href="/exercises/5-6" class="intro__list-item item">
+          <div
+            class="intro__list-item item"
+            data-for="teacher"
+            role="button"
+            data-modal="choose"
+          >
             <div class="item__title">5 - 6 яшь</div>
             <div class="item__content">
               <Image src="intro/3.png" />
-              <span>Белем  <br /> шатлыгы</span>
+              <span>Белем <br /> шатлыгы</span>
+            </div>
+          </div>
+
+          <a
+            href="/exercises/5-6"
+            class="intro__list-item item"
+            data-for="parent"
+          >
+            <div class="item__title">5 - 6 яшь</div>
+            <div class="item__content">
+              <Image src="intro/3.png" />
+              <span>Белем <br /> шатлыгы</span>
             </div>
           </a>
+
           <div class="intro__list-item item">
             <div class="item__title">6 - 7 яшь</div>
             <div class="item__content">

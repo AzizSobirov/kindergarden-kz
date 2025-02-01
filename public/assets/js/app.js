@@ -153,6 +153,13 @@ if (header) {
         if (index != menuItems.length - 3) {
           item.style.display = "none";
         }
+
+        if (index == menuItems.length - 4) {
+          item.style.display = "flex";
+
+          let a = item.querySelector("a");
+          a.href = "/exercises/5-6";
+        }
       }
     }
 

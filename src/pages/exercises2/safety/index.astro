@@ -1,0 +1,52 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../components/TheExercise2.astro";
+---
+
+<Exercice
+  page={2}
+  menu={0}
+  title="Куркынычсызлык кагыйдәләре"
+  subtitle="Без бүген бик мөһим - өйдә куркынычсыз тотыш турында сөйләшербез. Син куркынычсызлыкның нәрсә икәнен беләсеңме? Куркынычсызлык - ул сиңа да, сәламәтлеккә дә берни янамый дигән сүз. Куркыныч безне хәтта өйдә дә көтә ала, бигрәк тә өлкәннәр булмаганда. Рәсемнәргә кара да өйдә нинди куркынычсызлык кагыйдәләрен белгәнеңне сөйлә."
+  next="/exercises2/recognition/library"
+  audio="Куркынычсызлык кагыйдәләре.ogg"
+>
+  <ul class="grid">
+    <li>
+      <Image src="safety/1.png" />
+    </li>
+    <li>
+      <Image src="safety/2.png" />
+    </li>
+    <li>
+      <Image src="safety/3.png" />
+    </li>
+    <li>
+      <Image src="safety/4.png" />
+    </li>
+    <li>
+      <Image src="safety/5.png" />
+    </li>
+    <li>
+      <Image src="safety/6.png" />
+    </li>
+  </ul>
+</Exercice>
+
+<style lang="scss" scoped>
+  .grid {
+    margin-top: 10px;
+    padding: 0 5px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+
+    img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 15px;
+    }
+  }
+</style>

@@ -1,0 +1,33 @@
+---
+import { Section, Accordion, Image, Icon, H1, H2, H3, H4 } from "ui";
+import Exercice from "../../../../components/TheExercise2.astro";
+---
+
+<Exercice
+  page={2}
+  menu={1}
+  title="Хайваннарны сана"
+  subtitle=""
+  next="/exercises2/speech/tell-story"
+  audio="Xaivannarni saniybiz.ogg"
+>
+  <iframe
+    style="width: 100%;"
+    width="720"
+    height="405"
+    src="https://rutube.ru/play/embed/f47814f0f1180e30f02aabb3a9c3e9e7/"
+    allow="clipboard-write; autoplay"></iframe>
+
+  <div class="sum">
+    <div class="span">
+      <span> Ун саны кайда сурәтләнгән? Дөрес җавап тап.</span>
+    </div>
+
+    <ul class="answers">
+      <li class="highAndLow">1</li>
+      <li class="highAndLow">5</li>
+      <li class="highAndLow">10</li>
+      <li class="highAndLow">7</li>
+    </ul>
+  </div>
+</Exercice>

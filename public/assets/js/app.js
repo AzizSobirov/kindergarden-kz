@@ -158,7 +158,7 @@ if (header) {
           item.style.display = "flex";
 
           let a = item.querySelector("a");
-          a.href = "/exercises/5-6";
+          a.href = "/exercises2";
         }
       }
     }
@@ -172,6 +172,11 @@ if (header) {
     } else if (
       linkUrl.pathname == "/exercises" &&
       window.location.pathname.startsWith("/exercises")
+    ) {
+      isActive = true;
+    } else if (
+      linkUrl.pathname == "/exercises2" &&
+      window.location.pathname.startsWith("/exercises2")
     ) {
       isActive = true;
     } else if (

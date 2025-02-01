@@ -1,5 +1,5 @@
 ---
-import App from "../../../App.astro";
+import App from "../../App.astro";
 import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
 ---
 
@@ -13,7 +13,7 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
             <a href="/"><span>Баш бит</span></a>
           </li>
           <li>
-            <a href="/exercises"><span>Күнегүләр</span></a>
+            <a href="/exercises2"><span>Белемне ныгыту</span></a>
           </li>
           <li class="active">
             <a href="#" class="disabled">
@@ -31,22 +31,13 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
             <div class="sections__item-title">Иҗтимагый-коммуникатив үсеш</div>
 
             <div class="list">
-              <a href="/exercises/communication/my-family" class="list-item">
+              <a href="/exercises2/communication/my-family" class="list-item">
                 <Image src="page-1/41.png" />
                 <span>Минем гаиләм</span>
               </a>
-              <a href="/exercises/communication/homework" class="list-item">
+              <!-- <a href="/exercises2/communication/homework" class="list-item">
                 <Image src="page-1/42.png" />
                 <span>Өй эшләре</span>
-              </a>
-              <!-- <a href="/exercises/communication/polite-words" class="list-item">
-                <Image src="page-1/40.png" />
-                <span
-                  ><span
-                    style="font-family: var(--font-secondary);font-weight: 500;"
-                    >Ә</span
-                  >дәпле сүзләр</span
-                >
               </a> -->
             </div>
           </div>
@@ -54,74 +45,65 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
           <div class="sections__item">
             <div class="sections__item-title">Танып белү үсеше</div>
             <div class="list">
-              <!-- <a href="/exercises/recognition/home" class="list-item">
-                <Image src="page-1/38.png" />
-                <span>Туган җирем</span>
-              </a> -->
-
-              <a href="/exercises/recognition/creml" class="list-item">
+              <a href="/exercises2/recognition/library" class="list-item">
                 <Image src="page-1/31.png" />
-                <span>Казан-Башкалам</span>
+                <span>Татарстанның Милли китапханәсе</span>
               </a>
-              <a href="/exercises/recognition/gerb-and-flag" class="list-item">
+              <a href="/exercises2/numbers/sum" class="list-item">
+                <Image src="Zamena fona2.png" />
+                <span
+                  >Хайваннарны <br />
+                  саныйбыз</span
+                >
+              </a>
+
+              <!-- <a href="/exercises2/recognition/gerb-and-flag" class="list-item">
                 <Image src="page-1/36.png" />
                 <span>Татарстанның символикасы</span>
               </a>
-              <a href="/exercises/awareness/metro" class="list-item">
+              <a href="/exercises2/awareness/metro" class="list-item">
                 <Image src="page-1/33.png" />
                 <span>Метро станцияләре</span>
               </a>
-              <!-- <a href="/exercises/logics/high-and-low" class="list-item">
-                <Image src="page-1/1.png" />
-                <span
-                  >Югары <br />
-                  һәм түбән</span
-                >
-              </a> -->
-              <a href="/exercises/logics/extra-row" class="list-item">
+
+              <a href="/exercises2/logics/extra-row" class="list-item">
                 <Image src="page-1/3.png" />
                 <span
                   >Өстәмә <br />
                   рәт</span
                 >
               </a>
-              <a href="/exercises/logics/losses" class="list-item">
+              <a href="/exercises2/logics/losses" class="list-item">
                 <Image src="page-1/4.png" />
                 <span>Югалтулар</span>
               </a>
 
-              <a href="/exercises/recognition/rules" class="list-item">
+              <a href="/exercises2/recognition/rules" class="list-item">
                 <Image src="Pdd.png" />
                 <span>Юл хәрәкәте кагыйдәләре</span>
-              </a>
-              <!-- <a href="/exercises/logics/hard-and-soft" class="list-item">
+              </a> -->
+              <!-- <a href="/exercises2/logics/hard-and-soft" class="list-item">
                 <Image src="page-1/2.png" />
                 <span
                   >Каты <br />
                   һәм йомшак</span
                 >
               </a> -->
-              <a href="/exercises/numbers/sum" class="list-item">
-                <Image src="Zamena fona2.png" />
-                <span
-                  >Хайваннарны  <br />
-                  саныйбыз</span
-                >
-              </a>
-              <a href="/exercises/numbers/howmuch" class="list-item">
+              <!-- 
+              <a href="/exercises2/numbers/howmuch" class="list-item">
                 <Image src="Zamena fona1.png" />
                 <span
                   >Предметларны <br />
                   саныйбыз</span
                 >
-              </a>
+              </a> -->
             </div>
           </div>
 
           <div class="sections__item">
             <div class="sections__item-title">Сөйләм үсеше</div>
             <div class="list">
-              <a href="/exercises/speech/tell-story" class="list-item">
+              <a href="/exercises2/speech/tell-story" class="list-item">
                 <Image src="page-1/28.png" />
                 <span
                   ><span
@@ -130,18 +112,18 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
                   >киятне сөйлә</span
                 >
               </a>
-              <a
-                href="/exercises/speech/interesting-features"
+              <!-- <a
+                href="/exercises2/speech/interesting-features"
                 class="list-item"
               >
                 <Image src="page-1/30.png" />
                 <span>Кызыклы сыйфатлар</span>
               </a>
-              <a href="/exercises/grammar/choose-a-letter" class="list-item">
+              <a href="/exercises2/grammar/choose-a-letter" class="list-item">
                 <Image src="page-1/9.png" />
                 <span>Хәрефне сайла</span>
               </a>
-              <a href="/exercises/grammar/alphabet" class="list-item">
+              <a href="/exercises2/grammar/alphabet" class="list-item">
                 <Image src="page-1/7.png" />
                 <span
                   ><span
@@ -150,46 +132,46 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
                   >лифба</span
                 >
               </a>
-              <a href="/exercises/grammar/purity-of-speech" class="list-item">
+              <a href="/exercises2/grammar/purity-of-speech" class="list-item">
                 <Image src="page-1/8.png" />
                 <span>
                   Сүзләр һәм <br /> схемалар
                 </span>
-              </a>
+              </a> -->
             </div>
           </div>
 
           <div class="sections__item">
             <div class="sections__item-title">Сәнгати-эстетик үсеш</div>
             <div class="list">
-              <a href="/exercises/artistic/draw" class="list-item">
+              <!-- <a href="/exercises2/artistic/draw" class="list-item">
                 <Image src="Vmesto koshki.png" />
                 <span>Рәсемне <br />буяу</span>
-              </a>
-              <a href="/exercises/artistic/dressed" class="list-item">
+              </a> -->
+              <a href="/exercises2/artistic/dressed" class="list-item">
                 <Image src="page-1/35.png" />
                 <span>Татар милли киемнәр</span>
               </a>
-              <a href="/exercises/artistic/music" class="list-item">
+              <!-- <a href="/exercises2/artistic/music" class="list-item">
                 <Image src="page-1/29.png" />
                 <span>Халык музыкасы</span>
               </a>
 
-              <a href="/exercises/logics/image-types" class="list-item">
+              <a href="/exercises2/logics/image-types" class="list-item">
                 <Image src="Vidy risunkov.png" />
                 <span>Рәсемнәрнең төрләре</span>
               </a>
 
-              <a href="/exercises/artistic/artist" class="list-item">
+              <a href="/exercises2/artistic/artist" class="list-item">
                 <Image src="page-1/29.png" />
                 <span>Сәнгатьтә һөнәрләр</span>
-              </a>
+              </a> -->
 
-              <!-- <a href="/exercises/artistic/dance" class="list-item">
+              <!-- <a href="/exercises2/artistic/dance" class="list-item">
                 <Image src="page-1/32.png" />
                 <span>Күңелле биюләр</span>
               </a>
-              <a href="/exercises/artistic/colors" class="list-item">
+              <a href="/exercises2/artistic/colors" class="list-item">
                 <Image src="page-1/22.png" />
                 <span
                   >Төсләрне <br />
@@ -209,47 +191,22 @@ import { Section, Image, Icon, H1, H2, H3, H4 } from "ui";
           <div class="sections__item">
             <div class="sections__item-title">Физик үсеш</div>
             <div class="list">
-              <a href="/exercises/physic/body" class="list-item">
+              <!-- <a href="/exercises2/physic/body" class="list-item">
                 <Image src="page-1/37.png" />
                 <span>Гәудә төзелеше</span>
               </a>
-              <a href="/exercises/physic/sport" class="list-item">
+              <a href="/exercises2/physic/sport" class="list-item">
                 <Image src="page-1/34.png" />
                 <span>Спорт биналары</span>
-              </a>
-              <!-- <a href="/exercises/physic/ball" class="list-item">
-                <Image src="page-1/39.png" />
-                <span>Яңгыравыклы туп</span>
               </a> -->
-              <a href="/exercises/physic/nationalgames" class="list-item">
+              <a href="/exercises2/physic/ball" class="list-item">
+                <Image src="page-1/39.png" />
+                <span>Янгыравыклы туп</span>
+              </a>
+              <!-- <a href="/exercises2/physic/nationalgames" class="list-item">
                 <Image src="Milli yennar2.png" />
                 <span>Милли уеннар</span>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="text-h2">Өстәмә биремнәр</div>
-        <div class="sections">
-          <div class="sections__item" style="--text-color: #ffb282;">
-            <div class="sections__item-title">Логопедик биремнәр</div>
-            <div class="list">
-              <a href="/exercises/pronounce/zsound" class="list-item">
-                <Image src="page-1/26.png" />
-                <span
-                  >Бармагың <br />
-                  белән үткәр - <br />
-                  “З” авазы</span
-                >
-              </a>
-              <a href="/exercises/pronounce/rsound" class="list-item">
-                <Image src="page-1/27.png" />
-                <span>
-                  Фонематик <br />
-                  ишетү - <br />
-                  “Р” авазы
-                </span>
-              </a>
+              </a> -->
             </div>
           </div>
         </div>

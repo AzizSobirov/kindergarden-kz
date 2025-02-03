@@ -214,7 +214,7 @@ if (profile) {
   if (userType == "parent") {
     name.innerHTML = "Хисматуллин Илнур <br/> Айдар улы";
     desc.innerHTML =
-      "казан шəhәренең 405нче «нәүрүз» балалар бакчасы, <br/> Урта төркем укучысы, 5 яшь";
+      "Казан шəhәренең 405нче «Нәүрүз» балалар бакчасы, <br/> Урта төркем укучысы, 5 яшь";
     // name.style.display = "none";
     // desc.style.display = "none";
     avatar.src = "/assets/img/little-boy.jpg";
